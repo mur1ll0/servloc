@@ -24,12 +24,16 @@
 	<head>
 		<title>Diário de Bordo</title>
 		<link rel="stylesheet" type="text/css" media="screen" href="estilo.css"/>
+		<link rel="stylesheet" type="text/css" href="static/layout/stylesheets/vendors.min.css"/>
+		<link rel="stylesheet" type="text/css" href="static/layout/stylesheets/algaworks.min.css"/>
+		<link rel="stylesheet" type="text/css" href="static/layout/stylesheets/application.css"/>
+		<link rel="stylesheet" type="text/css" href="static/stylesheets/trab.css}">
 	</head>
 
 	<body>
 		<div id="header">
 			<ul>
-				<li><p>Diário de Bordo Online</p></li>
+				<li><p>TESTE GERAL</p></li>
 				<div id="menu">
 				<li><a href="index.php">Início</a></li>
 				<li><a href="pilotos.php">Pilotos</a></li>
@@ -58,6 +62,11 @@
 				<li><p>Copyright © 2018, Murillo André Maleski</br>Todos os direitos reservados.</p></li>
 			</ul>
 		</div>
+		
+		<script src="static/layout/javascripts/vendors.min.js"></script>
+		<script src="static/layout/javascripts/algaworks.min.js"></script>
+		<script src="static/javascripts/vendors/jquery.maskMoneymin.js"></script>
+		<script src="static/javascripts/trab.js"></script>
 		</body>
 	</html>
 

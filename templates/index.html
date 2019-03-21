@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+	<title>Trab</title>
+
+	<link rel="stylesheet" type="text/css" th:href="@{/layout/stylesheets/vendors.min.css}"/>
+	<link rel="stylesheet" type="text/css" th:href="@{/layout/stylesheets/algaworks.min.css}"/>
+	<link rel="stylesheet" type="text/css" th:href="@{/layout/stylesheets/application.css}"/>
+	<link rel="stylesheet" type="text/css" th:href="@{/stylesheets/trab.css}"/>
+</head>
+<body>
+
+	<div class="aw-layout-page">
+	
+		<div th:replace="fragments/BarraNavegacao :: navbar"></div>
+				
+		
+		<section class="aw-layout-content  js-content">
+			<div class="jumbotron">
+				<div class="container-fluid">
+					<input class="form-control input-inicio" type="text" placeholder="Buscar serviços, pessoas, oportunidades...">
+				</div>
+			</div>
+			
+			<div class="container-fluid">
+				<div class="row">
+					<div class="borda-inv col-md-2 bg-info">
+						<h1>Teste1</h1>
+						<button class="btn" data-toggle="modal" data-target="#myModal">Teste</button>
+					</div>
+					<div class="borda-solid col-md-4">
+						<h1>Teste2</h1>
+						<button class="btn">Teste</button>
+					</div>
+				</div>
+			</div>
+			
+			<div th:replace="fragments/Modal :: modal"></div>
+			
+		</section>
+		
+
+		<div th:replace="fragments/Footer.html :: footer"></div>
+	
+	</div>
+
+
+	<script th:src="@{/layout/javascripts/vendors.min.js}"></script>
+	<script th:src="@{/layout/javascripts/algaworks.min.js}"></script>
+	<script th:src="@{/javascripts/vendors/jquery.maskMoneymin.js}"></script>
+	<script th:src="@{/javascripts/trab.js}"></script>
+</body>
+</html>

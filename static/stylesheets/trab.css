@@ -1,0 +1,48 @@
+/*
+##########################
+# BOX, GRIDS
+##########################
+*/
+
+/* BORDA*/
+.borda-solid{
+	border-style: solid;
+	border-width: 2px;
+	border-color: #e5e5e5;
+	border-radius: 14px;
+	padding-bottom: 15px;
+}
+.borda-inv{
+	border-width: 2px;
+	border-radius: 14px;
+	padding-bottom: 15px;
+}
+
+/*
+##########################
+COMPONENTES
+##########################
+*/
+
+/* FIELD ACTION*/
+.bw-field-action{
+	display: flex;
+}
+.bw-field-action_icon{
+	margin: 5px 0 0 5px;
+}
+
+/*GLYPH-ICON*/
+.glyph-icon svg {
+	width:16px;
+	height:16px;
+}
+
+
+/* INPUT */
+.input-inicio{
+	height: 80px;
+	font-size: 24px;
+	border-radius: 8px;
+	padding: 10px 16px;
+}
