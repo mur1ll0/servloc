@@ -1,3 +1,6 @@
+search-box
+
+
 
 
 <?php
@@ -16,27 +19,18 @@
 		  <ol class="carousel-indicators">
 			<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
 			<li data-target="#carousel-example-generic" data-slide-to="1"></li>
-			<li data-target="#carousel-example-generic" data-slide-to="2"></li>
 		  </ol>
 		 
 		  <!-- Wrapper for slides -->
 		  <div class="carousel-inner">
 			<div class="item active">
-			  <img src="http://placehold.it/1200x315" alt="...">
+			  <img src="http://www.jwf.com.br/thumb.php?w=1920&h=550&src=images/1496848584.jpg" alt="...">
 			  <div class="carousel-caption">
-				<h3>Caption Text</h3>
 			  </div>
 			</div>
 			<div class="item">
-			  <img src="http://placehold.it/1200x315" alt="...">
+			  <img src="http://www.ebi.pt/wp-content/uploads/2014/09/imagem_seccao_jardinagem.png" alt="...">
 			  <div class="carousel-caption">
-				<h3>Caption Text</h3>
-			  </div>
-			</div>
-			<div class="item">
-			  <img src="http://placehold.it/1200x315" alt="...">
-			  <div class="carousel-caption">
-				<h3>Caption Text</h3>
 			  </div>
 			</div>
 		  </div>
@@ -56,15 +50,15 @@
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="row">
-							<div class="col-lg-3 col-md-3 col-sm-12 p-0">
-								<input type="text" class="form-control search-slt" placeholder="Enter Pickup City">
+							<div class="col-lg-3 col-md-3 col-sm-12 p-0 search-box">
+								<input type="text" class="form-control search-slt" placeholder="Estado">
 							</div>
-							<div class="col-lg-3 col-md-3 col-sm-12 p-0">
-								<input type="text" class="form-control search-slt" placeholder="Enter Drop City">
+							<div class="col-lg-3 col-md-3 col-sm-12 p-0 search-box">
+								<input type="text" class="form-control search-slt" placeholder="Cidade">
 							</div>
-							<div class="col-lg-3 col-md-3 col-sm-12 p-0">
+							<div class="col-lg-3 col-md-3 col-sm-12 p-0 search-box">
 								<select class="form-control search-slt" id="exampleFormControlSelect1">
-									<option>Select Vehicle</option>
+									<option>Selecione o serviço</option>
 									<option>Example one</option>
 									<option>Example one</option>
 									<option>Example one</option>
@@ -73,7 +67,7 @@
 									<option>Example one</option>
 								</select>
 							</div>
-							<div class="col-lg-3 col-md-3 col-sm-12 p-0">
+							<div class="col-lg-3 col-md-3 col-sm-12 p-0 search-box">
 								<button type="button" class="btn btn-danger wrn-btn">Search</button>
 							</div>
 						</div>
