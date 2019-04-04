@@ -3,7 +3,7 @@
 #              --CONEXÕES COM BANCO DE DADOS--            #
 #                                                         #
 #                Autor: Murillo André Maleski             #
-#                   Diário de Bordo Online                #
+#                      SERVLOV - CIMATCH                  #
 ###########################################################
 */?>
 
@@ -16,7 +16,7 @@
 		
 		$db_host = '127.0.0.1';
 		$db_port = '3306';
-		$db_database = 'trab';
+		$db_database = 'servlocbd';
 		$db_user = 'root';
 		$db_password = '';
 		

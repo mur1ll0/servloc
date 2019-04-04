@@ -261,9 +261,6 @@
 			});
 			$('.js-sidebar, .js-content').toggleClass('is-toggled');
 		</script>
-		
-		</body>
-	</html>
 
 <?php
 	}

@@ -12,7 +12,7 @@
 	
 	session_start();
 	
-	c_header();
+	c_header_sideless();
 ?>
 
 	<div class="aw-layout-page">	
@@ -27,22 +27,23 @@
 			</div>
 			
 			<div class="container-fluid">
+				<?php
+					if (isset($_POST['titulo'])){
+						echo '<h1>Serviço cadastrado: '.$_POST['titulo'].'</h1';
+						query("INSERT into servico (titulo, descricao, estado, cidade) values ('".$_POST['titulo']."' , '". $_POST['desc']."' , '". $_POST['estado']."' , '". $_POST['cidade']."');");
+					}
+				?>
 			
-				<!-- >div class="alert  alert-danger  alert-dismissible" role="alert">
-					<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<i class="fa  fa-exclamation-circle"></i> Já existe um serviço com o nome informado.
-				</div-->
-			
-				<form method = "POST" class="form-vertical  js-form-loading">
+				<form id="form_cadServico" method="POST" class="form-vertical js-form-loading" target="cadastro-servico.php">
 					
 					<div class="form-group">
 						<label for="nome">Título</label>
-						<input id="nome" type="text" class="form-control"/>
+						<input name="titulo" type="text" class="form-control"/>
 					</div>
 			
 					<div class="form-group">
 						<label for="desc">Descrição</label>
-						<textarea id="desc" rows="5" class="form-control"></textarea>
+						<textarea name="desc" rows="5" class="form-control"></textarea>
 					</div>
 					
 					<div class="form-group">
@@ -78,7 +79,7 @@
 							    <option value="sp">São Paulo</option> 
 							    <option value="to">Tocantins</option> 
 							</select>
-							<input id="cidade" type="text" class="form-control" value="Digite sua Cidade"/>
+							<input name="cidade" type="text" class="form-control" value="Digite sua Cidade"/>
 						</div>
 					</div>
 					
@@ -124,8 +125,24 @@
 			</div>
 		</section>
 
-	
-	
 <?php
-	c_footer();
+	c_footer_sideless();
 ?>
+	
+	<script>
+	function submitForm(){
+		$.ajax({
+			type: "POST",
+			url: 'static/php/forms.php',
+			data: $('#form_cadServico').serialize(),
+			success: function(response){
+				//$('#Modal .modal-header .modal-title').html("Resultado em POST");
+				//$('#Modal .modal-body').html(response);
+			}
+		});
+	}
+	</script>
+
+
+</body>
+</html>
