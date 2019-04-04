@@ -12,7 +12,7 @@
 
 <?php
 	require 'static/php/connection.php';
-	
+
 
 	/*---------------------------------
 	--   Cabeçalho da Página, MENU   --
@@ -29,30 +29,32 @@
 		<link rel="stylesheet" type="text/css" href="static/stylesheets/trab.css">
 		<link rel="stylesheet" type="text/css" href="static/stylesheets/multi-select.css"/>
 		<link rel="stylesheet" type="text/css" href="static/stylesheets/amsify.suggestags.css"/>
+		<link href="static/stylesheets/jquery.dataTables.min.css" type="text/css"/>
+		<script src="static/javascripts/vendors/jquery.dataTables.min.js" type="text/javascript"></script>
 		<script type="text/javascript" src="static/sprite/iconwc.js"></script>
 	</head>
-	
+
 	<body>
 		<nav class="navbar  navbar-fixed-top  navbar-default  js-sticky-reference" id="main-navbar">
 		  <div class="container-fluid">
-	
+
 		  	<div class="navbar-header">
 		      <a class="navbar-brand  hidden-xs" href="#">
 		        <img alt="SERVLOC" src="static/img/logonada.png"/>
 		      </a>
 		    </div>
-	
+
 		    <ul class="nav navbar-nav  navbar-right">
-		      
+
 		      <li class="dropdown">
 		        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 		          <i class="fa  fa-user"></i>
 		        </a>
-		        
+
 		        <ul class="dropdown-menu">
 		          <li>
 		            <div class="aw-logged-user">
-		              <img src="https://api.adorable.io/avatars/80/joaodascouves" 
+		              <img src="https://api.adorable.io/avatars/80/joaodascouves"
 		                width="80" height="80" alt="João das Couves" class="aw-logged-user__picture" />
 		              <span class="aw-logged-user__name">João das Couves</span>
 		            </div>
@@ -63,19 +65,19 @@
 		          <li><a href="#">Pagamentos</a></li>
 		        </ul>
 		      </li>
-		      
+
 		      <li>
 		        <a href="#"><em class="fa  fa-sign-out"></em></a>
-		      </li> 
+		      </li>
 		    </ul>
-	
+
 			</div>
 		</nav>
-	
+
 <?php
 	}
-	
-	
+
+
 	/*---------------------------------
 	--        Rodapé da Página       --
 	---------------------------------*/
@@ -89,7 +91,7 @@
 			</footer>
 		</div>
 	</div>
-		
+
 		<script src="static/layout/javascripts/vendors.min.js"></script>
 		<script src="static/layout/javascripts/algaworks.min.js"></script>
 		<script src="static/javascripts/vendors/jquery.maskMoney.min.js"></script>
@@ -99,7 +101,7 @@
 		<script type="text/javascript">
 			//OPTGROUP
 			$('#optgroup').multiSelect({ selectableOptgroup: true });
-			
+
 			//SUGGESTAGS
 			$('input[name="tags"]').amsifySuggestags({
 			  type : 'bootstrap',
@@ -116,16 +118,15 @@
 
 <?php
 	}
-	
-	
+
+
 	/*---------------------------------
 	--             --
 	---------------------------------*/
 	function teste(){
 ?>
 		<p>Teste</p>
-	
+
 <?php
 	}
 ?>
-
