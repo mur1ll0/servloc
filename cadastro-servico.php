@@ -30,7 +30,7 @@
 				<?php
 					if (isset($_POST['titulo'])){
 						echo "<h1>Serviço cadastrado: ".$_POST['titulo']."</h1";
-						query("INSERT into servico (titulo, descricao, estado, cidade) values ('".$_POST['titulo']."' , '". $_POST['desc']."' , '". $_POST['estado']."' , '". $_POST['cidade']."');");
+						query("INSERT into servicos (titulo, descricao, estado, cidade) values ('".$_POST['titulo']."' , '". $_POST['desc']."' , '". $_POST['estado']."' , '". $_POST['cidade']."');");
 					}
 				?>
 			

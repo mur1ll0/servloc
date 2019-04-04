@@ -10,5 +10,5 @@ CREATE TABLE servicos(
 	descricao varchar(200),
 	estado varchar (20),
 	cidade varchar (40),
-	ativo integer (1) NOT NULL
+	ativo integer (1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
