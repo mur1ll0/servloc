@@ -12,7 +12,7 @@
 	
 	session_start();
 	
-	c_header_sideless();
+	c_header();
 ?>
 
 	<div class="aw-layout-page">	
@@ -29,7 +29,7 @@
 			<div class="container-fluid">
 				<?php
 					if (isset($_POST['titulo'])){
-						echo '<h1>Serviço cadastrado: '.$_POST['titulo'].'</h1';
+						echo "<h1>Serviço cadastrado: ".$_POST['titulo']."</h1";
 						query("INSERT into servico (titulo, descricao, estado, cidade) values ('".$_POST['titulo']."' , '". $_POST['desc']."' , '". $_POST['estado']."' , '". $_POST['cidade']."');");
 					}
 				?>
@@ -126,7 +126,7 @@
 		</section>
 
 <?php
-	c_footer_sideless();
+	c_footer();
 ?>
 	
 	<script>
