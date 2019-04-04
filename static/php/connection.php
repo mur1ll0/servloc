@@ -8,6 +8,8 @@
 */?>
 
 <?php
+
+	error_reporting(0); // Disable all errors.
 	
 	/*---------------------------------
 	--      Abrir conexão MySQL      --
