@@ -28,44 +28,44 @@
 			</div>
 
 			<div class="container-fluid">
-				<form method = "POST" class="form-vertical  js-form-loading">
+				<table id="servtable" class="table table-bordered table-hover">
+					<thead class="thead-dark">
+						<tr>
+						<th>ID</th>
+						<th>Titulo</th>
+						<th>Descrição</th>
+					  </tr>
+					</thead>
+					<tbody>
+						<?php $sqlquery = "SELECT codigo, titulo, descricao
+																FROM servicos
+																WHERE ativo = 1";
+							$resultado = query($sqlquery);
+							foreach ($resultado as $row	) {
+							  echo "<tr>";
+									echo "<td>". $row[0]. "</td>";
+									echo "<td>". $row[1]. "</td>";
+									echo "<td>". $row[2]. "</td>";
+								echo "</tr>";
+							}
 
-					<table id="servtable" class="table table-bordered table-hover">
-						<thead class="thead-dark">
-							<tr>
-								<th>ID</th>
-						    <th>Titulo</th>
-						    <th>Descrição</th>
-						  </tr>
-						</thead>
-						<tbody>
-							<?php $sqlquery = "SELECT codigo, titulo, descricao
-																	FROM servicos
-																	WHERE ativo = 1";
-								connect_db();
-								$resultado = query($sqlquery);
-								foreach ($resultado as $row	) {
-								  echo "<tr>";
-										echo "<td>". $row[0]. "</td>";
-										echo "<td>". $row[1]. "</td>";
-										echo "<td>". $row[2]. "</td>";
-									echo "</tr>";
-								}
+						?>
+					</tbody>
+				</table>
 
-							?>
-						</tbody>
-					</table>
-
-					<div class="form-group">
-            <button id="btn-sair" class="btn  btn-secondary" type="submit">Sair</button>
-            <button id="btn-excluir" class="btn  btn-danger" type="submit">Excluir</button>
-            <button id="btn-editar" class="btn  btn-primary" type="submit">Editar</button>
-					</div>
-
-				</form>
+				<div class="form-group">
+					<button id="btn-sair" class="btn  btn-secondary" type="submit">Sair</button>
+					<button id="btn-excluir" class="btn  btn-danger" type="submit">Excluir</button>
+					<button id="btn-editar" class="btn  btn-primary" type="submit">Editar</button>
+				</div>
 			</div>
 		</section>
 
+<?php
+	c_footer();
+?>
+		<script src="static/javascripts/vendors/jquery-1.11.1.min.js"></script>
+		<script src="static/javascripts/vendors/jquery.dataTables.min.js"></script>
 		<script>
 			$(document).ready(function(){
 				var table = $('#servtable').DataTable({
@@ -102,12 +102,13 @@
 						$(this).addClass('selected');
 					}
 				});
+				$('#btn-excluir').click(function(){
+					var dados = table.row('.selected').data();
+					alert(dados);
+					table.row('.selected').remove().draw(false);
+				});
 			});
 
 		</script>
 	</body>
 </html>
-
-<?php
-	c_footer();
-?>

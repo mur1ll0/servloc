@@ -29,8 +29,7 @@
 		<link rel="stylesheet" type="text/css" href="static/stylesheets/trab.css">
 		<link rel="stylesheet" type="text/css" href="static/stylesheets/multi-select.css"/>
 		<link rel="stylesheet" type="text/css" href="static/stylesheets/amsify.suggestags.css"/>
-		<link href="static/stylesheets/jquery.dataTables.min.css" type="text/css"/>
-		<script src="static/javascripts/vendors/jquery.dataTables.min.js" type="text/javascript"></script>
+		<link rel="stylesheet" type="text/css" href="static/stylesheets/jquery.dataTables.min.css"/>
 		<script type="text/javascript" src="static/sprite/iconwc.js"></script>
 	</head>
 

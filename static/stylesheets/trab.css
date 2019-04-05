@@ -53,3 +53,8 @@ COMPONENTES
 	border-radius: 8px;
 	padding: 10px 16px;
 }
+
+/* DATA TABLE */
+.selected{
+	background-color: #D3D3D3;
+}
