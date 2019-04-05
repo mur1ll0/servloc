@@ -54,6 +54,15 @@
 									opt_select_estado();
 								?>
 							</select>
+							<?php
+								/*if $_POST['edit'] == 1{
+									$result = query(Select form where id = 5)
+									echo "<input name='cidade' type='text' class='form-control' value='".$result[0][4]."'/>"
+								}
+								else{
+									echo <input name="cidade" type="text" class="form-control" value="Digite sua Cidade"/>
+								}*/
+							?>
 							<input name="cidade" type="text" class="form-control" value="Digite sua Cidade"/>
 						</div>
 					</div>

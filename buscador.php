@@ -3,7 +3,7 @@
 
 	session_start();
 
-	c_header_sideless();
+	c_header();
 ?>
 
 
@@ -76,5 +76,8 @@
 
 
 <?php
-	c_footer_sideless();
+	c_footer();
 ?>
+
+</body>
+</html>
