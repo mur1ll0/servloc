@@ -1,13 +1,8 @@
-search-box
-
-
-
-
 <?php
 	require 'comum.php';
-	
+
 	session_start();
-	
+
 	c_header_sideless();
 ?>
 
@@ -20,7 +15,7 @@ search-box
 			<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
 			<li data-target="#carousel-example-generic" data-slide-to="1"></li>
 		  </ol>
-		 
+
 		  <!-- Wrapper for slides -->
 		  <div class="carousel-inner">
 			<div class="item active">
@@ -34,7 +29,7 @@ search-box
 			  </div>
 			</div>
 		  </div>
-		 
+
 		  <!-- Controls -->
 		  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
 			<span class="glyphicon glyphicon-chevron-left"></span>
@@ -44,6 +39,7 @@ search-box
 		  </a>
 		</div> <!-- Carousel -->
 	</section>
+	<!-- Buscador -->
 	<section class="search-sec">
 		<div class="container">
 			<form action="#" method="post" novalidate="novalidate">
@@ -51,20 +47,20 @@ search-box
 					<div class="col-lg-12">
 						<div class="row">
 							<div class="col-lg-3 col-md-3 col-sm-12 p-0 search-box">
-								<input type="text" class="form-control search-slt" placeholder="Estado">
+								<select name="estado" class="form-control">
+									<?php
+										opt_select_estado();
+									?>
+								</select>
 							</div>
 							<div class="col-lg-3 col-md-3 col-sm-12 p-0 search-box">
 								<input type="text" class="form-control search-slt" placeholder="Cidade">
 							</div>
 							<div class="col-lg-3 col-md-3 col-sm-12 p-0 search-box">
 								<select class="form-control search-slt" id="exampleFormControlSelect1">
-									<option>Selecione o serviço</option>
-									<option>Example one</option>
-									<option>Example one</option>
-									<option>Example one</option>
-									<option>Example one</option>
-									<option>Example one</option>
-									<option>Example one</option>
+									<?php
+										opt_select_servico();
+									?>
 								</select>
 							</div>
 							<div class="col-lg-3 col-md-3 col-sm-12 p-0 search-box">
@@ -78,7 +74,7 @@ search-box
 	</section>
 </div>
 
-	
+
 <?php
 	c_footer_sideless();
 ?>

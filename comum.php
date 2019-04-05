@@ -12,7 +12,7 @@
 
 <?php
 	require 'static/php/connection.php';
-	
+
 
 	/*---------------------------------
 	--   Cabeçalho da Página, MENU   --
@@ -35,30 +35,30 @@
 	<body>
 		<nav class="navbar  navbar-fixed-top  navbar-default  js-sticky-reference" id="main-navbar">
 		  <div class="container-fluid">
-	
+
 		  	<div class="navbar-header">
 		      <a class="navbar-brand  hidden-xs" href="#">
 		        <img alt="SERVLOC" src="static/img/logonada.png"/>
 		      </a>
-	
+
 		      <ul class="nav  navbar-nav">
 		        <li>
 		          <a href="#" class="js-sidebar-toggle"><i class="fa  fa-bars"></i></a>
 		        </li>
 		      </ul>
 		    </div>
-	
+
 		    <ul class="nav navbar-nav  navbar-right">
-		      
+
 		      <li class="dropdown">
 		        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 		          <i class="fa  fa-user"></i>
 		        </a>
-		        
+
 		        <ul class="dropdown-menu">
 		          <li>
 		            <div class="aw-logged-user">
-		              <img src="https://api.adorable.io/avatars/80/joaodascouves" 
+		              <img src="https://api.adorable.io/avatars/80/joaodascouves"
 		                width="80" height="80" alt="João das Couves" class="aw-logged-user__picture" />
 		              <span class="aw-logged-user__name">João das Couves</span>
 		            </div>
@@ -69,25 +69,25 @@
 		          <li><a href="#">Pagamentos</a></li>
 		        </ul>
 		      </li>
-		      
+
 		      <li>
 		        <a href="#"><em class="fa  fa-sign-out"></em></a>
-		      </li> 
+		      </li>
 		    </ul>
-	
+
 			</div>
 		</nav>
-		
+
 		<aside class="aw-layout-sidebar  js-sidebar">
 			<div class="aw-layout-sidebar__content">
-	
+
 	    	<nav class="aw-menu  js-menu">
 	      		<ul class="aw-menu__list">
-	
+
 	        		<li class="aw-menu__item">
 			          <a href="dashboard.html"><i class="fa  fa-fw  fa-home"></i><span>Dashboard</span></a>
 	    		    </li>
-	
+
 	        		<li class="aw-menu__item  is-active">
 	          			<a href="#">
 	            			<i class="fa  fa-fw  fa-file-text"></i><span>Cadastros</span>
@@ -100,13 +100,13 @@
 			            	<li class="aw-menu__item  aw-menu__item--link"><a href="tabela-sem-dados.html">Tabela sem dados</a></li>
 			          	</ul>
 	        		</li>
-	
+
 			        <li class="aw-menu__item  is-expanded">
 			          <a href="#">
 			            <i class="fa  fa-fw  fa-file-text"></i><span>Páginas comuns</span>
 			            <i class="aw-menu__navigation-icon  fa"></i>
 			          </a>
-			
+
 			          <ul class="aw-menu__list  aw-menu__list--sublist">
 			            <li class="aw-menu__item  aw-menu__item--link"><a href="pagina-vazia.html">Página vazia</a></li>
 			            <li class="aw-menu__item  aw-menu__item--link"><a href="login.html">Login</a></li>
@@ -116,7 +116,7 @@
 			            <li class="aw-menu__item  aw-menu__item--link"><a href="500.html">500</a></li>
 			          </ul>
 			        </li>
-	
+
 	      		</ul>
 	    	</nav>
 			</div>
@@ -124,7 +124,7 @@
 
 <?php
 	}
-	
+
 	function c_header_sideless(){
 ?>
 	<!DOCTYPE html>
@@ -139,28 +139,28 @@
 		<link rel="stylesheet" type="text/css" href="static/stylesheets/amsify.suggestags.css"/>
 		<script type="text/javascript" src="static/sprite/iconwc.js"></script>
 	</head>
-	
+
 	<body>
 		<nav class="navbar  navbar-fixed-top  navbar-default  js-sticky-reference" id="main-navbar">
 		  <div class="container-fluid">
-	
+
 		  	<div class="navbar-header">
 		      <a class="navbar-brand  hidden-xs" href="#">
 		        <img alt="SERVLOC" src="static/img/logonada.png"/>
 		      </a>
 		    </div>
-	
+
 		    <ul class="nav navbar-nav  navbar-right">
-		      
+
 		      <li class="dropdown">
 		        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 		          <i class="fa  fa-user"></i>
 		        </a>
-		        
+
 		        <ul class="dropdown-menu">
 		          <li>
 		            <div class="aw-logged-user">
-		              <img src="https://api.adorable.io/avatars/80/joaodascouves" 
+		              <img src="https://api.adorable.io/avatars/80/joaodascouves"
 		                width="80" height="80" alt="João das Couves" class="aw-logged-user__picture" />
 		              <span class="aw-logged-user__name">João das Couves</span>
 		            </div>
@@ -171,19 +171,19 @@
 		          <li><a href="#">Pagamentos</a></li>
 		        </ul>
 		      </li>
-		      
+
 		      <li>
 		        <a href="#"><em class="fa  fa-sign-out"></em></a>
-		      </li> 
+		      </li>
 		    </ul>
-	
+
 			</div>
 		</nav>
-	
+
 <?php
 	}
-	
-	
+
+
 	/*---------------------------------
 	--        Rodapé da Página       --
 	---------------------------------*/
@@ -197,7 +197,7 @@
 			</footer>
 		</div>
 	</div>
-		
+
 		<script src="static/layout/javascripts/vendors.min.js"></script>
 		<script src="static/layout/javascripts/algaworks.min.js"></script>
 		<script src="static/javascripts/vendors/jquery.maskMoney.min.js"></script>
@@ -207,7 +207,7 @@
 		<script type="text/javascript">
 			//OPTGROUP
 			$('#optgroup').multiSelect({ selectableOptgroup: true });
-			
+
 			//SUGGESTAGS
 			$('input[name="tags"]').amsifySuggestags({
 			  type : 'bootstrap',
@@ -220,13 +220,13 @@
 			  }
 			});
 		</script>
-		
+
 		</body>
 	</html>
 
 <?php
 	}
-	
+
 	function c_footer_sideless(){
 ?>
 		<div>
@@ -237,7 +237,7 @@
 			</footer>
 		</div>
 	</div>
-		
+
 		<script src="static/layout/javascripts/vendors.min.js"></script>
 		<script src="static/layout/javascripts/algaworks.min.js"></script>
 		<script src="static/javascripts/vendors/jquery.maskMoney.min.js"></script>
@@ -247,7 +247,7 @@
 		<script type="text/javascript">
 			//OPTGROUP
 			$('#optgroup').multiSelect({ selectableOptgroup: true });
-			
+
 			//SUGGESTAGS
 			$('input[name="tags"]').amsifySuggestags({
 			  type : 'bootstrap',
@@ -264,16 +264,70 @@
 
 <?php
 	}
-	
-	
+
+
+	/*---------------------------------
+	--        Opções de Select       --
+	---------------------------------*/
+
+	function opt_select_estado(){
+		?>
+			<option value="estado">Selecione o Estado</option>
+			<option value="ac">Acre</option>
+			<option value="al">Alagoas</option>
+			<option value="am">Amazonas</option>
+			<option value="ap">Amapá</option>
+			<option value="ba">Bahia</option>
+			<option value="ce">Ceará</option>
+			<option value="df">Distrito Federal</option>
+			<option value="es">Espírito Santo</option>
+			<option value="go">Goiás</option>
+			<option value="ma">Maranhão</option>
+			<option value="mt">Mato Grosso</option>
+			<option value="ms">Mato Grosso do Sul</option>
+			<option value="mg">Minas Gerais</option>
+			<option value="pa">Pará</option>
+			<option value="pb">Paraíba</option>
+			<option value="pr">Paraná</option>
+			<option value="pe">Pernambuco</option>
+			<option value="pi">Piauí</option>
+			<option value="rj">Rio de Janeiro</option>
+			<option value="rn">Rio Grande do Norte</option>
+			<option value="ro">Rondônia</option>
+			<option value="rs">Rio Grande do Sul</option>
+			<option value="rr">Roraima</option>
+			<option value="sc">Santa Catarina</option>
+			<option value="se">Sergipe</option>
+			<option value="sp">São Paulo</option>
+			<option value="to">Tocantins</option>
+
+		<?php
+	}
+
+	function opt_select_servico(){
+		?>
+			<optgroup label='Construção Civil'>
+				<option value='1'>Pedreiro</option>
+				<option value='2'>Eletrecista</option>
+				<option value='3'>Encanador</option>
+				<option value='4'>Arquitetura</option>
+				<option value='5'>Paisagismo</option>
+			</optgroup>
+			<optgroup label='Prestação de Serviços'>
+				<option value='6'>Montador de Móveis</option>
+				<option value='7'>Mudança</option>
+			</optgroup>
+
+		<?php
+	}
+
 	/*---------------------------------
 	--             --
 	---------------------------------*/
 	function teste(){
 ?>
 		<p>Teste</p>
-	
+
 <?php
 	}
 ?>
-
