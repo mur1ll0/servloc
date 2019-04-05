@@ -42,7 +42,7 @@
 	<!-- Buscador -->
 	<section class="search-sec">
 		<div class="container">
-			<form action="#" method="post" novalidate="novalidate">
+			<form method="POST" target="">
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="row">
@@ -64,7 +64,7 @@
 								</select>
 							</div>
 							<div class="col-lg-3 col-md-3 col-sm-12 p-0 search-box">
-								<button type="button" class="btn btn-danger wrn-btn">Search</button>
+								<button name="search" type="submit" class="btn btn-danger wrn-btn">Search</button>
 							</div>
 						</div>
 					</div>
@@ -72,6 +72,11 @@
 			</form>
 		</div>
 	</section>
+	<?php
+		if (isset($_POST['search'])){
+			echo "<h1>Tentando busca algo nene?</h1>";
+		}
+	?>
 </div>
 
 
