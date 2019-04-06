@@ -54,10 +54,10 @@
 								</select>
 							</div>
 							<div class="col-lg-3 col-md-3 col-sm-12 p-0 search-box">
-								<input type="text" class="form-control search-slt" placeholder="Cidade">
+								<input name="cidade" type="text" class="form-control search-slt" placeholder="Cidade">
 							</div>
 							<div class="col-lg-3 col-md-3 col-sm-12 p-0 search-box">
-								<select class="form-control search-slt" id="exampleFormControlSelect1">
+								<select name="categoria" class="form-control search-slt" id="exampleFormControlSelect1">
 									<?php
 										opt_select_servico();
 									?>
@@ -72,11 +72,40 @@
 			</form>
 		</div>
 	</section>
-	<?php
-		if (isset($_POST['search'])){
-			echo "<h1>Tentando busca algo nene?</h1>";
-		}
-	?>
+	<div class="container">
+		<table id="servtable" class="table table-bordered table-hover">
+			<thead class="thead-dark">
+				<tr>
+					<th>Titulo</th>
+					<th>Descrição</th>
+					<th>Estado</th>
+					<th>Cidade</th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php
+					if (isset($_POST['search'])){
+						$sqlquery = "SELECT
+														*
+													FROM
+														servicos
+													WHERE
+														estado LIKE '".$_POST['estado']."'
+														AND cidade LIKE '".$_POST['cidade']."';"; //AND categoria='". $_POST['categoria']."'
+						$resultado = query($sqlquery);
+						echo "<tr>";
+						foreach ($resultado as $row){
+								echo "<td>".$row[1]."</td>";
+								echo "<td>".$row[2]."</td>";
+								echo "<td>".$row[3]."</td>";
+								echo "<td>".$row[4]."</td>";
+						}
+						echo "</tr>";
+					}
+				?>
+			</tbody>
+		</table>
+	</div>
 </div>
 
 
