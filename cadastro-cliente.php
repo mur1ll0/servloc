@@ -12,7 +12,7 @@
 
 	session_start();
 
-	c_header_sideless();
+	c_header();
 ?>
 
 	<div class="aw-layout-page">
