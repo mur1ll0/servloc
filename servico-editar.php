@@ -104,7 +104,7 @@
 				});
 				$('#btn-excluir').click(function(){
 					var dados = table.row('.selected').data();
-					alert(dados);
+					//AJAX VAI AQUI - UPDATE servicos SET ativo = 0 WHERE codigo = $dados[0]
 					table.row('.selected').remove().draw(false);
 				});
 			});
