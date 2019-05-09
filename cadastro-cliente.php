@@ -130,7 +130,7 @@
 <script>
 	$("#form_cadCliente").submit(function(event){
 		event.preventDefault();
-		alert('1234');
+		
 		$.ajax({
 			type: "POST",
 			url: 'static/php/teste.php',
