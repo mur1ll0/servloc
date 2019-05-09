@@ -76,7 +76,7 @@
 		<table id="servtable" class="table table-bordered table-hover">
 			<thead class="thead-dark">
 				<tr>
-					<th>Titulo</th>
+					<th>Nome</th>
 					<th>Descrição</th>
 					<th>Estado</th>
 					<th>Cidade</th>
