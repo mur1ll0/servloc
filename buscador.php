@@ -43,6 +43,11 @@
 	<section class="search-sec">
 		<div class="container">
 			<form method="POST" target="">
+
+				<div class="container-fluid">
+					<input name="searchString" type="text" class="search-container form-control" placeholder="Pesquise por titulo, descrição"/>
+				</div>
+
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="row">
@@ -85,22 +90,24 @@
 			<tbody>
 				<?php
 					if (isset($_POST['search'])){
+
 						$sqlquery = "SELECT
 														*
 													FROM
 														servicos
 													WHERE
-														estado LIKE '".$_POST['estado']."'
-														AND cidade LIKE '".$_POST['cidade']."';"; //AND categoria='". $_POST['categoria']."'
+														(titulo LIKE '%".$_POST['searchString']."%' OR descricao LIKE '%".$_POST['searchString']."%')
+														AND estado LIKE '%".$_POST['estado']."%'
+														AND cidade LIKE '%".$_POST['cidade']."%';"; //AND categoria='". $_POST['categoria']."'
 						$resultado = query($sqlquery);
-						echo "<tr>";
 						foreach ($resultado as $row){
+								echo "<tr>";
 								echo "<td>".$row[1]."</td>";
 								echo "<td>".$row[2]."</td>";
 								echo "<td>".$row[3]."</td>";
 								echo "<td>".$row[4]."</td>";
+								echo "</tr>";
 						}
-						echo "</tr>";
 					}
 				?>
 			</tbody>
