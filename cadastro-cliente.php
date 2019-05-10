@@ -28,7 +28,7 @@
 
 			<div class="container-fluid">
 
-				<form method = "POST" class="form-vertical  js-form-loading">
+				<form id="form_cadCliente" class="form-vertical  js-form-loading">
 
 					<div class="form-group">
 						<label for="nome">Usuário</label>
@@ -37,12 +37,12 @@
 
 					<div class="form-group">
 						<label for="nome">Senha</label>
-						<input id="dt-nasc" type="pasword" class="form-control"/>
+						<input id="dt-nasc" type="password" class="form-control"/>
 					</div>
 
 					<div class="form-group">
 						<label for="nome">Confirmar Senha</label>
-						<input id="dt-nasc" type="pasword" class="form-control"/>
+						<input id="dt-nasc" type="password" class="form-control"/>
 					</div>
 
 					<div class="form-group">
@@ -69,12 +69,12 @@
 
 					<div class="form-group">
 						<label for="nome">RG</label>
-						<input id="rg" type="text" class="form-control"/>
+						<input id="rg" type="text" class="form-control" maxLength="10"/>
 					</div>
 
 					<div class="form-group">
 						<label for="nome">CPF</label>
-						<input id="cpf" type="text" class="form-control"/>
+						<input id="cpf" type="text" class="form-control" data-mask="000.000.000-00" maxLength="11	"/>
 					</div>
 
 					<div class="form-group">
@@ -127,7 +127,21 @@
 			</div>
 		</section>
 
-
+<script>
+	$("#form_cadCliente").submit(function(event){
+		event.preventDefault();
+		
+		$.ajax({
+			type: "POST",
+			url: 'static/php/teste.php',
+			data: $('#form_cadCliente').serialize(),
+			success: function(response){
+				//$('#Modal .modal-header .modal-title').html("Resultado em POST");
+				//$('#Modal .modal-body').html(response);
+			};
+		});
+	});
+</script>
 
 <?php
 	c_footer_sideless();

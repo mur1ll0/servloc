@@ -36,7 +36,7 @@
 				<form method = "POST" class="form-vertical  js-form-loading">
 					
 					<div class="form-group">
-						<label for="nome">Título</label>
+						<label for="nome">Nome</label>
 						<input id="nome" type="text" class="form-control"/>
 					</div>
 			

@@ -32,12 +32,12 @@
 					<thead class="thead-dark">
 						<tr>
 						<th>ID</th>
-						<th>Titulo</th>
+						<th>Nome</th>
 						<th>Descrição</th>
 					  </tr>
 					</thead>
 					<tbody>
-						<?php $sqlquery = "SELECT codigo, titulo, descricao
+						<?php $sqlquery = "SELECT codigo, nome, descricao
 																FROM servicos
 																WHERE ativo = 1";
 							$resultado = query($sqlquery);

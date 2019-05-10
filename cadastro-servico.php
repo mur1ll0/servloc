@@ -28,17 +28,17 @@
 
 			<div class="container-fluid">
 				<?php
-					if (isset($_POST['titulo'])){
-						echo "<h1>Serviço cadastrado: ".$_POST['titulo']."</h1>";
-						query("INSERT into servicos (titulo, descricao, estado, cidade) values ('".$_POST['titulo']."' , '". $_POST['desc']."' , '". $_POST['estado']."' , '". $_POST['cidade']."');");
+					if (isset($_POST['nome'])){
+						echo "<h1>Serviço cadastrado: ".$_POST['nome']."</h1>";
+						query("INSERT into servicos (nome, descricao, estado, cidade) values ('".$_POST['nome']."' , '". $_POST['desc']."' , '". $_POST['estado']."' , '". $_POST['cidade']."');");
 					}
 				?>
 
 				<form id="form_cadServico" method="POST" class="form-vertical js-form-loading" target="cadastro-servico.php">
 
 					<div class="form-group">
-						<label for="nome">Título</label>
-						<input name="titulo" type="text" class="form-control"/>
+						<label for="nome">Nome</label>
+						<input name="nome" type="text" class="form-control"/>
 					</div>
 
 					<div class="form-group">
