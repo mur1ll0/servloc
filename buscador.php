@@ -45,7 +45,7 @@
 			<form method="POST" target="">
 
 				<div class="container-fluid">
-					<input name="searchString" type="text" class="search-container form-control" placeholder="Pesquise por titulo, descrição"/>
+					<input name="searchString" type="text" class="search-container form-control" placeholder="Pesquise por nome, descrição"/>
 				</div>
 
 				<div class="row">
@@ -96,7 +96,7 @@
 													FROM
 														servicos
 													WHERE
-														(titulo LIKE '%".$_POST['searchString']."%' OR descricao LIKE '%".$_POST['searchString']."%')
+														(nome LIKE '%".$_POST['searchString']."%' OR descricao LIKE '%".$_POST['searchString']."%')
 														AND estado LIKE '%".$_POST['estado']."%'
 														AND cidade LIKE '%".$_POST['cidade']."%';"; //AND categoria='". $_POST['categoria']."'
 						$resultado = query($sqlquery);
