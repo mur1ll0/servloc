@@ -4,6 +4,12 @@
 	padding-top: 20px;
 }
 
+.showAdvanced{
+	display: block;
+}
+.hideAdvanced{
+	display: none;
+}
 
 /*
 ##########################
