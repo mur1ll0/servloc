@@ -6,7 +6,7 @@ USE `servlocbd`;
 
 CREATE TABLE servicos(
 	codigo BIGINT(20) PRIMARY KEY AUTO_INCREMENT,
-	titulo varchar(64) NOT NULL,
+	nome varchar(64) NOT NULL,
 	descricao varchar(200),
 	estado varchar (20),
 	cidade varchar (40),
