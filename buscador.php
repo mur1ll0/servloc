@@ -43,13 +43,27 @@
 	<section class="search-sec">
 		<div class="container">
 			<form method="POST" target="">
-
-				<div class="container-fluid">
-					<input name="searchString" type="text" class="search-container form-control" placeholder="Pesquise por nome, descrição"/>
-				</div>
-
+				<!-- String -->
 				<div class="row">
 					<div class="col-lg-12">
+						<div class="row">
+							<div class="col-lg-9 col-md-3 col-sm-12 p-0 search-box">
+
+								<div class="container-fluid">
+									<input name="searchString" type="text" class="search-container form-control" placeholder="Pesquise por nome, descrição"/>
+								</div>
+
+							</div>
+							<div class="col-lg-3 col-md-3 col-sm-12 p-0 search-box">
+								<button name="search" type="submit" class="btn btn-danger wrn-btn">Search</button>
+								<button name="advanced" id="advanced" type="button" class="btn btn-danger wrn-btn">Busca Avançada</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Avancada -->
+				<div class="row">
+					<div id="advancedDiv" class="col-lg-12 hideAdvanced">
 						<div class="row">
 							<div class="col-lg-3 col-md-3 col-sm-12 p-0 search-box">
 								<select name="estado" class="form-control">
@@ -68,15 +82,13 @@
 									?>
 								</select>
 							</div>
-							<div class="col-lg-3 col-md-3 col-sm-12 p-0 search-box">
-								<button name="search" type="submit" class="btn btn-danger wrn-btn">Search</button>
-							</div>
 						</div>
 					</div>
 				</div>
 			</form>
 		</div>
 	</section>
+	<!-- Resultados -->
 	<div class="container">
 		<table id="servtable" class="table table-bordered table-hover">
 			<thead class="thead-dark">
@@ -119,6 +131,20 @@
 <?php
 	c_footer();
 ?>
+
+	<script>
+
+		$('#advanced').click(function(){
+			if($('#advancedDiv').hasClass('hideAdvanced')){
+				$('#advancedDiv').removeClass('hideAdvanced');
+				$('#advancedDiv').addClass('showAdvanced');
+			}
+			else{
+				$('#advancedDiv').removeClass('showAdvanced');
+				$('#advancedDiv').addClass('hideAdvanced');
+			}
+		});
+	</script>
 
 </body>
 </html>
