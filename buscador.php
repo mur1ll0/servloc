@@ -43,6 +43,7 @@
 	<section class="search-sec">
 		<div class="container">
 			<form method="POST" target="">
+			
 				<!-- String -->
 				<div class="row">
 					<div class="col-lg-12">
@@ -62,9 +63,8 @@
 					</div>
 				</div>
 				<!-- Avancada -->
-				<div class="row">
-					<div id="advancedDiv" class="col-lg-12 hideAdvanced">
-						<div class="row">
+				<div id="advancedDiv" class="hideAdvanced">
+					<div class="row col-lg-12">
 							<div class="col-lg-3 col-md-3 col-sm-12 p-0 search-box">
 								<select name="estado" class="form-control">
 									<?php
