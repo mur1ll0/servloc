@@ -43,9 +43,28 @@
 	<section class="search-sec">
 		<div class="container">
 			<form method="POST" target="">
+			
+				<!-- String -->
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="row">
+							<div class="col-lg-9 col-md-3 col-sm-12 p-0 search-box">
+
+								<div class="container-fluid">
+									<input name="searchString" type="text" class="search-container form-control" placeholder="Pesquise por nome, descrição"/>
+								</div>
+
+							</div>
+							<div class="col-lg-3 col-md-3 col-sm-12 p-0 search-box">
+								<button name="search" type="submit" class="btn btn-danger wrn-btn">Search</button>
+								<button name="advanced" id="advanced" type="button" class="btn btn-danger wrn-btn">Busca Avançada</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Avancada -->
+				<div id="advancedDiv" class="hideAdvanced">
+					<div class="row col-lg-12">
 							<div class="col-lg-3 col-md-3 col-sm-12 p-0 search-box">
 								<select name="estado" class="form-control">
 									<?php
@@ -63,15 +82,13 @@
 									?>
 								</select>
 							</div>
-							<div class="col-lg-3 col-md-3 col-sm-12 p-0 search-box">
-								<button name="search" type="submit" class="btn btn-danger wrn-btn">Search</button>
-							</div>
 						</div>
 					</div>
 				</div>
 			</form>
 		</div>
 	</section>
+	<!-- Resultados -->
 	<div class="container">
 		<table id="servtable" class="table table-bordered table-hover">
 			<thead class="thead-dark">
@@ -85,22 +102,24 @@
 			<tbody>
 				<?php
 					if (isset($_POST['search'])){
+
 						$sqlquery = "SELECT
 														*
 													FROM
 														servicos
 													WHERE
-														estado LIKE '".$_POST['estado']."'
-														AND cidade LIKE '".$_POST['cidade']."';"; //AND categoria='". $_POST['categoria']."'
+														(nome LIKE '%".$_POST['searchString']."%' OR descricao LIKE '%".$_POST['searchString']."%')
+														AND estado LIKE '%".$_POST['estado']."%'
+														AND cidade LIKE '%".$_POST['cidade']."%';"; //AND categoria='". $_POST['categoria']."'
 						$resultado = query($sqlquery);
-						echo "<tr>";
 						foreach ($resultado as $row){
+								echo "<tr>";
 								echo "<td>".$row[1]."</td>";
 								echo "<td>".$row[2]."</td>";
 								echo "<td>".$row[3]."</td>";
 								echo "<td>".$row[4]."</td>";
+								echo "</tr>";
 						}
-						echo "</tr>";
 					}
 				?>
 			</tbody>
@@ -112,6 +131,20 @@
 <?php
 	c_footer();
 ?>
+
+	<script>
+
+		$('#advanced').click(function(){
+			if($('#advancedDiv').hasClass('hideAdvanced')){
+				$('#advancedDiv').removeClass('hideAdvanced');
+				$('#advancedDiv').addClass('showAdvanced');
+			}
+			else{
+				$('#advancedDiv').removeClass('showAdvanced');
+				$('#advancedDiv').addClass('hideAdvanced');
+			}
+		});
+	</script>
 
 </body>
 </html>
