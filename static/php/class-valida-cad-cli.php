@@ -1,72 +1,100 @@
 <?php
 	require '../../static/php/connection.php';
-// var_dump(isset($_POST['usuario']));
-// var_dump();
-  // echo '1234124124';
   $ok = true;
   $msgErro = '';
 
-  if (isset($_POST['usuario'])){
+  if ($ok && !empty($_POST['usuario'])){
     $result = query("SELECT count(*) teste FROM pessoas WHERE usuario = '".$_POST['usuario']."'");
     if ($result[0][0] > 0){
       $ok = false;
-      $msgErro = 'Usuario já cadastrado.';
+      $msgErro = $msgErro.' '.'Usuario já cadastrado.';
     }
   }else{
     $ok = false;
-    $msgErro = 'Preencha o campo de usuario.';
+    $msgErro = $msgErro.' '.'Preencha o campo de usuario.';
   }
-  if (!(isset($_POST['senha']))){
+  if ($ok && empty($_POST['senha'])){
     $ok = false;
-    $msgErro = 'Preencha campo de senha.';
+    $msgErro = $msgErro.' '.'Preencha campo de senha.';
   }
-  if (!(isset($_POST['senha2']))){
+  if ($ok && empty($_POST['senha2'])){
     $ok = false;
-    $msgErro = 'Preencha campo de confirmar senha.';
+    $msgErro = $msgErro.' '.'Preencha campo de confirmar senha.';
   }else{
 		if (!($_POST['senha2'] == $_POST['senha'])){
 	    $ok = false;
-	    $msgErro = 'Senha deve ser igual a confirmação da senha.';
+	    $msgErro = $msgErro.' '.'Senha deve ser igual a confirmação da senha.';
 		}
 	}
-  if (isset($_POST['tipo_cliente'])){
-		$cliente = true;
+	$cliente = 0;
+  if ($ok && !empty($_POST['tipo_cliente'])){
+		$cliente = 1;
   }
-  if (isset($_POST['tipo_fornecedor'])){
-    $fornecedor = true;
+	$fornecedor = 0;
+  if ($ok && !empty($_POST['tipo_fornecedor'])){
+    $fornecedor = 1;
   }
-  if (!(isset($_POST['nomeCompleto']))){
+  if ($ok && empty($_POST['nomeCompleto'])){
     $ok = false;
-    $msgErro = 'Preencha seu nome.';
+    $msgErro = $msgErro.' '.'Preencha seu nome.';
   }
-  if (!(isset($_POST['dtNasc']))){
+  if ($ok && empty($_POST['dtNasc'])){
     $ok = false;
-    $msgErro = 'Preencha sua data de nascimento.';
+    $msgErro = $msgErro.' '.'Preencha sua data de nascimento.';
   }
-  if (!(isset($_POST['rg']))){
+  if ($ok && empty($_POST['rg'])){
     $ok = false;
-    $msgErro = 'Preencha seu RG.';
+    $msgErro = $msgErro.' '.'Preencha seu RG.';
   }
-  if (!(isset($_POST['cpf']))){
+  if ($ok && empty($_POST['cpf'])){
     $ok = false;
-    $msgErro = 'Preencha seu CPF.';
+    $msgErro = $msgErro.' '.'Preencha seu CPF.';
   }
-  if (!(isset($_POST['telefone']))){
+  if ($ok && empty($_POST['telefone'])){
     $ok = false;
-    $msgErro = 'Preencha um telefone para contato.';
+    $msgErro = $msgErro.' '.'Preencha um telefone para contato.';
   }
-  if (!(isset($_POST['estado']))){
+  if ($ok && empty($_POST['estado'])){
     $ok = false;
-    $msgErro = 'Preencha o estado.';
+    $msgErro = $msgErro.' '.'Preencha o estado.';
   }
-  if (!(isset($_POST['cidade']))){
+  if ($ok && empty($_POST['cidade'])){
     $ok = false;
-    $msgErro = 'Preencha a cidade.';
+    $msgErro = $msgErro.' '.'Preencha a cidade.';
   }
-
   if ($ok){
-    // query("INSERT into servicos (nome, descricao, estado, cidade) values ('".$_POST['nome']."' , '". $_POST['desc']."' , '". $_POST['estado']."' , '". $_POST['cidade']."');");
-		echo 'ok';
+
+			$nomeCompleto = isset($_POST['nomeCompleto'])?$_POST['nomeCompleto']:'';
+			$rg = isset($_POST['rg'])?$_POST['rg']:'';
+			$cpf = isset($_POST['cpf'])?$_POST['cpf']:'';
+			$telefone = isset($_POST['telefone'])?$_POST['telefone']:'';
+			$email = isset($_POST['email'])?$_POST['email']:'';
+			$endereco = isset($_POST['endereco'])?$_POST['endereco']:'';
+			$bairro = isset($_POST['bairro'])?$_POST['bairro']:'';
+			$numero = isset($_POST['numero'])?$_POST['numero']:'';
+			$cidade = isset($_POST['cidade'])?$_POST['cidade']:'';
+			$estado = isset($_POST['estado'])?$_POST['estado']:'';
+			$usuario = isset($_POST['usuario'])?$_POST['usuario']:'';
+			$senha = isset($_POST['senha'])?$_POST['senha']:'';
+    query("INSERT into pessoas
+						(nome, rg, cpf, telefone, email, endereco, bairro, numero, cidade, uf, usuario, senha, fornecedor, cliente)
+					values
+						('". $nomeCompleto ."',
+						'". $rg ."',
+						'". $cpf ."',
+						'". $telefone ."',
+						'". $email ."',
+						'". $endereco ."',
+						'". $bairro ."',
+						'". $numero ."',
+						'". $cidade ."',
+						'". $estado ."',
+						'". $usuario ."',
+						'". $senha ."',
+						'". $cliente ."',
+						'". $fornecedor ."');");
+
+		echo "Cadastro realizado com sucesso.";
   }else{
     echo $msgErro;
   }

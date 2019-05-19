@@ -1,6 +1,6 @@
 <?/*
 ###########################################################
-#                     --CADASTRO SERVIÇOS--               #
+#                      --EDITAR SERVIÇOS--                #
 #                                                         #
 #                Autor: Murillo André Maleski             #
 #                           SERVLOC                       #
@@ -28,7 +28,7 @@
 			</div>
 
 			<div class="container-fluid">
-				<table id="servtable" class="table table-bordered table-hover">
+				<table name="servtable" id="servtable" class="table table-bordered table-hover">
 					<thead class="thead-dark">
 						<tr>
 						<th>ID</th>
@@ -37,7 +37,7 @@
 					  </tr>
 					</thead>
 					<tbody>
-						<?php $sqlquery = "SELECT codigo, nome, descricao
+						<?php $sqlquery = "SELECT codigo, titulo, descricao
 																FROM servicos
 																WHERE ativo = 1";
 							$resultado = query($sqlquery);
@@ -54,9 +54,9 @@
 				</table>
 
 				<div class="form-group">
-					<button id="btn-sair" class="btn  btn-secondary" type="submit">Sair</button>
-					<button id="btn-excluir" class="btn  btn-danger" type="submit">Excluir</button>
-					<button id="btn-editar" class="btn  btn-primary" type="submit">Editar</button>
+					<button name="btn-sair" id="btn-sair" class="btn  btn-secondary" type="submit">Sair</button>
+					<button name="btn-excluir" id="btn-excluir" class="btn  btn-danger" type="submit">Excluir</button>
+					<button name="btn-editar" id="btn-editar" class="btn  btn-primary" type="submit">Editar</button>
 				</div>
 			</div>
 		</section>
@@ -104,11 +104,36 @@
 				});
 				$('#btn-excluir').click(function(){
 					var dados = table.row('.selected').data();
-					//AJAX VAI AQUI - UPDATE servicos SET ativo = 0 WHERE codigo = $dados[0]
+					editaServ(1,dados[0]);
 					table.row('.selected').remove().draw(false);
+				});
+				$('#btn-editar').click(function(){
+					var dados = table.row('.selected').data();
+					editaServ(2,dados[0]);
 				});
 			});
 
+			function editaServ(opcao,servId){
+				var dados = new Array(2);
+				dados[0] = opcao;
+				dados[1] = servId;
+				xhr = new XMLHttpRequest();
+				xhr.open('POST', 'static/php/class-edita-serv.php');
+				xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+				xhr.onload = function() {
+					if (xhr.status === 200) {
+						if (opcao == 1){
+							location.replace = xhr.responseText;
+						}else{
+							alert(xhr.responseText);
+						}
+					}
+					else if (xhr.status !== 200) {
+						alert('Request failed.  Returned status of ' + xhr.status);
+					}
+				};
+				xhr.send(dados);
+			}
 		</script>
 	</body>
 </html>
