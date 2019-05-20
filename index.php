@@ -1,132 +1,150 @@
-<?/*
-###########################################################
-#                     --PÁGINA PRINCIPAL--                #
-#                                                         #
-#                Autor: Murillo André Maleski             #
-#                   Diário de Bordo Online                #
-###########################################################
-*/?>
-
 <?php
 	require 'comum.php';
-	
+
 	session_start();
-	
+
 	c_header();
 ?>
-	<div id="page">
-	<div class="aw-layout-page">	
-		
-		<section class="aw-layout-content  js-content">
-			<div class="page-header">
-				<div class="container-fluid">
-					<h1>
-						Cadastro de serviço
-					</h1>
+
+
+<div class="aw-layout-page">
+	<section>
+		<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+		  <!-- Indicators -->
+		  <ol class="carousel-indicators">
+			<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+			<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+		  </ol>
+
+		  <!-- Wrapper for slides -->
+		  <div class="carousel-inner">
+			<div class="item active">
+			  <img src="http://www.jwf.com.br/thumb.php?w=1920&h=550&src=images/1496848584.jpg" alt="...">
+			  <div class="carousel-caption">
+			  </div>
+			</div>
+			<div class="item">
+			  <img src="http://www.ebi.pt/wp-content/uploads/2014/09/imagem_seccao_jardinagem.png" alt="...">
+			  <div class="carousel-caption">
+			  </div>
+			</div>
+		  </div>
+
+		  <!-- Controls -->
+		  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+			<span class="glyphicon glyphicon-chevron-left"></span>
+		  </a>
+		  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+			<span class="glyphicon glyphicon-chevron-right"></span>
+		  </a>
+		</div> <!-- Carousel -->
+	</section>
+	<!-- Buscador -->
+	<section class="search-sec">
+		<div class="container">
+			<form method="POST" target="/servloc/index.php">
+			
+				<!-- String -->
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="row">
+							<div class="col-lg-9 col-md-3 col-sm-12 p-0 search-box">
+
+								<div class="container-fluid">
+									<input name="searchString" type="text" class="search-container form-control" placeholder="Pesquise por nome, descrição"/>
+								</div>
+
+							</div>
+							<div class="col-lg-3 col-md-3 col-sm-12 p-0 search-box">
+								<button name="search" type="submit" class="btn btn-danger wrn-btn">Search</button>
+								<button name="advanced" id="advanced" type="button" class="btn btn-danger wrn-btn">Busca Avançada</button>
+							</div>
+						</div>
+					</div>
 				</div>
-			</div>
-			
-			<div class="container-fluid">
-			
-				<!-- >div class="alert  alert-danger  alert-dismissible" role="alert">
-					<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<i class="fa  fa-exclamation-circle"></i> Já existe um serviço com o nome informado.
-				</div-->
-			
-				<form method = "POST" class="form-vertical  js-form-loading">
-					
-					<div class="form-group">
-						<label for="nome">Nome</label>
-						<input id="nome" type="text" class="form-control"/>
-					</div>
-			
-					<div class="form-group">
-						<label for="desc">Descrição</label>
-						<textarea id="desc" rows="5" class="form-control"></textarea>
-					</div>
-					
-					<div class="form-group">
-						<label for="contato">Localização</label>
-						<div class="form-inline">
-							<select name="estado" class="form-control"> 
-							    <option value="estado">Selecione o Estado</option> 
-							    <option value="ac">Acre</option> 
-							    <option value="al">Alagoas</option> 
-							    <option value="am">Amazonas</option> 
-							    <option value="ap">Amapá</option> 
-							    <option value="ba">Bahia</option> 
-							    <option value="ce">Ceará</option> 
-							    <option value="df">Distrito Federal</option> 
-							    <option value="es">Espírito Santo</option> 
-							    <option value="go">Goiás</option> 
-							    <option value="ma">Maranhão</option> 
-							    <option value="mt">Mato Grosso</option> 
-							    <option value="ms">Mato Grosso do Sul</option> 
-							    <option value="mg">Minas Gerais</option> 
-							    <option value="pa">Pará</option> 
-							    <option value="pb">Paraíba</option> 
-							    <option value="pr">Paraná</option> 
-							    <option value="pe">Pernambuco</option> 
-							    <option value="pi">Piauí</option> 
-							    <option value="rj">Rio de Janeiro</option> 
-							    <option value="rn">Rio Grande do Norte</option> 
-							    <option value="ro">Rondônia</option> 
-							    <option value="rs">Rio Grande do Sul</option> 
-							    <option value="rr">Roraima</option> 
-							    <option value="sc">Santa Catarina</option> 
-							    <option value="se">Sergipe</option> 
-							    <option value="sp">São Paulo</option> 
-							    <option value="to">Tocantins</option> 
-							</select>
-							<input id="cidade" type="text" class="form-control" value="Digite sua Cidade"/>
+				<!-- Avancada -->
+				<div id="advancedDiv" class="hideAdvanced">
+					<div class="row col-lg-12">
+							<div class="col-lg-3 col-md-3 col-sm-12 p-0 search-box">
+								<select name="estado" class="form-control">
+									<?php
+										opt_select_estado();
+									?>
+								</select>
+							</div>
+							<div class="col-lg-3 col-md-3 col-sm-12 p-0 search-box">
+								<input name="cidade" type="text" class="form-control search-slt" placeholder="Cidade">
+							</div>
+							<div class="col-lg-3 col-md-3 col-sm-12 p-0 search-box">
+								<select name="categoria" class="form-control search-slt" id="exampleFormControlSelect1">
+									<?php
+										opt_select_servico();
+									?>
+								</select>
+							</div>
 						</div>
 					</div>
-					
-					<div class="form-group">
-						<label for="categorias">Categorias</label>
-						<select id='optgroup' multiple='multiple'>
-						    <optgroup label='Construção Civil'>
-								<option value='1'>Pedreiro</option>
-							   	<option value='2'>Eletrecista</option>
-							   	<option value='3'>Encanador</option>
-							   	<option value='4'>Arquitetura</option>
-							   	<option value='5'>Paisagismo</option>
-							</optgroup>
-							<optgroup label='Prestação de Serviços'>
-								<option value='6'>Montador de Móveis</option>
-							    <option value='7'>Mudança</option>
-							</optgroup>
-						</select>
-					</div>
-					
-					<div class="form-group">
-						<label for="categorias">Tags</label>
-						<input type="text" class="form-control" name="tags"/>
-					</div>
-					
-					<div class="form-group">
-						<label for="contato">Contatos</label>
-						<div class="input-group">
-							<div class="input-group-addon"><svg-icon class="glyph-icon"><src th:href="@{/sprite/sprite.svg#si-glyph-call}"/></svg></div>
-							<textarea id="contato" rows="3" class="form-control"></textarea>
-						</div>
-						<div class="input-group">
-							<div class="input-group-addon"><svg-icon class="glyph-icon"><src th:href="@{/sprite/sprite.svg#si-glyph-mail}"/></svg></div>
-							<input id="email" type="text" class="form-control"/>
-						</div>
-					</div>
-					
-					<div class="form-group">
-						<button class="btn  btn-primary" type="submit">Cadastrar Serviço</button>
-					</div>
-			
-				</form>
-			</div>
-		</section>
-	
+				</div>
+			</form>
+		</div>
+	</section>
+	<!-- Resultados -->
+	<div class="container">
+		<table id="servtable" class="table table-bordered table-hover">
+			<thead class="thead-dark">
+				<tr>
+					<th>Nome</th>
+					<th>Descrição</th>
+					<th>Estado</th>
+					<th>Cidade</th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php
+					if (isset($_POST['search'])){
+
+						$sqlquery = "SELECT
+										*
+									FROM
+										servicos
+									WHERE
+										(nome LIKE '%".$_POST['searchString']."%' OR descricao LIKE '%".$_POST['searchString']."%')
+										AND estado LIKE '%".$_POST['estado']."%'
+										AND cidade LIKE '%".$_POST['cidade']."%';"; //AND categoria='". $_POST['categoria']."'
+						$resultado = query($sqlquery);
+						foreach ($resultado as $row){
+								echo "<tr>";
+								echo "<td>".$row[1]."</td>";
+								echo "<td>".$row[2]."</td>";
+								echo "<td>".$row[3]."</td>";
+								echo "<td>".$row[4]."</td>";
+								echo "</tr>";
+						}
+					}
+				?>
+			</tbody>
+		</table>
 	</div>
-	</div>
-	
+</div>
+
+
 <?php
-	//c_footer();
+	c_footer();
 ?>
+
+	<script>
+
+		$('#advanced').click(function(){
+			if($('#advancedDiv').hasClass('hideAdvanced')){
+				$('#advancedDiv').removeClass('hideAdvanced');
+				$('#advancedDiv').addClass('showAdvanced');
+			}
+			else{
+				$('#advancedDiv').removeClass('showAdvanced');
+				$('#advancedDiv').addClass('hideAdvanced');
+			}
+		});
+	</script>
+
+</body>
+</html>

@@ -1,4 +1,25 @@
-/*Buscador*/
+/*
+##########################
+# NAVBAR
+##########################
+*/
+
+/*Logo*/
+.navbar-brand {
+  padding: 0px;
+}
+.navbar-brand>img {
+  height: 100%;
+  padding: 15px;
+  width: auto;
+}
+
+
+/*
+##########################
+# BUSCADOR
+##########################
+*/
 
 .search-box{
 	padding-top: 20px;
@@ -17,6 +38,7 @@
 .hideAdvanced{
 	display: none;
 }
+
 
 /*
 ##########################

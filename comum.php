@@ -35,13 +35,24 @@
 
 		<body>
 			<nav class="navbar  navbar-fixed-top  navbar-default  js-sticky-reference" id="main-navbar">
-			  <div class="container-fluid">
-			  	<div class="navbar-header">
-			      <a class="navbar-brand  hidden-xs" href="#">
-			        <img alt="SERVLOC" src="static/img/logonada.png"/>
-			      </a>
-			    </div>
-			    <ul class="nav navbar-nav  navbar-right">
+				<div class="container-fluid">
+					<div class="navbar-header">
+					  <a class="navbar-brand  hidden-xs" href="/servloc/index.php">
+						<img alt="SERVLOC" src="static/img/logo.png"/>
+					  </a>
+					</div>
+				
+					<div id="navbar2" class="navbar-collapse collapse">
+						<ul class="nav navbar-nav navbar-right">
+							<li class="active"><a href="/servloc/index.php">Home</a></li>
+							<li><a href="/servloc/cadastro-servico.php">Cadastrar Serviços</a></li>
+							<li><a href="#">Logar</a></li>
+							<li><a href="/servloc/cadastro-cliente.php">Cadastrar Usuário</a></li>
+						</ul>
+					</div>
+				</div>
+				
+			    <!--ul class="nav navbar-nav  navbar-right">
 			      <li class="dropdown">
 			        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 			          <i class="fa  fa-user"></i>
@@ -64,7 +75,7 @@
 			        <a href="#"><em class="fa  fa-sign-out"></em></a>
 			      </li>
 			    </ul>
-				</div>
+				</div-->
 			</nav>
 
 <?php
