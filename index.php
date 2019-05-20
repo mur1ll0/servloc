@@ -42,7 +42,7 @@
 	<!-- Buscador -->
 	<section class="search-sec">
 		<div class="container">
-			<form method="POST" target="/servloc/index.php">
+			<form method="POST" target="">
 			
 				<!-- String -->
 				<div class="row">
@@ -102,7 +102,8 @@
 			<tbody>
 				<?php
 					if (isset($_POST['search'])){
-
+						if($_POST['estado'] == '*') $_POST['estado'] = '';
+						
 						$sqlquery = "SELECT
 										*
 									FROM
@@ -110,7 +111,8 @@
 									WHERE
 										(nome LIKE '%".$_POST['searchString']."%' OR descricao LIKE '%".$_POST['searchString']."%')
 										AND estado LIKE '%".$_POST['estado']."%'
-										AND cidade LIKE '%".$_POST['cidade']."%';"; //AND categoria='". $_POST['categoria']."'
+										AND cidade LIKE '%".$_POST['cidade']."%'
+										;"; //AND categoria='". $_POST['categoria']."'
 						$resultado = query($sqlquery);
 						foreach ($resultado as $row){
 								echo "<tr>";
