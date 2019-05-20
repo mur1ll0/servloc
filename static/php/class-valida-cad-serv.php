@@ -4,7 +4,7 @@
   $msgErro = '';
 
   if ($ok && !empty($_POST['nome'])){
-    $result = query("SELECT count(*) teste FROM servicos WHERE titulo = '".$_POST['nome']."' and ativo = 1;");
+    $result = query("SELECT count(*) teste FROM servicos WHERE nome = '".$_POST['nome']."' and ativo = 1;");
     if ($result[0][0] > 0){
       $ok = false;
       $msgErro = $msgErro.' '.'Serviço já cadastrado.';
@@ -50,7 +50,7 @@
       $ativoServ = 1;
 
       query("INSERT into servicos
-                (titulo, descricao, estado, cidade, ativo)
+                (nome, descricao, estado, cidade, ativo)
               values
                 ('".$nomeServ."',
                   '".$descServ."',
