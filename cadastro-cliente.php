@@ -1,6 +1,6 @@
 <?/*
 ###########################################################
-#                     --CADASTRO SERVIÇOS--               #
+#                     --CADASTRO CLIENTES--               #
 #                                                         #
 #                Autor: Murillo André Maleski             #
 #                           SERVLOC                       #
@@ -28,94 +28,94 @@
 
 			<div class="container-fluid">
 
-				<form id="form_cadCliente" class="form-vertical  js-form-loading">
+				<form onsubmit="submitForm();return false;" id="form_cadCliente" class="form-vertical  js-form-loading">
 
 					<div class="form-group">
-						<label for="nome">Usuário</label>
-						<input id="nome" type="text" class="form-control"/>
+						<label>Usuário</label>
+						<input name='usuario' id="usuario" type="text" class="form-control" maxLength="10" value=""/>
 					</div>
 
 					<div class="form-group">
-						<label for="nome">Senha</label>
-						<input id="dt-nasc" type="password" class="form-control"/>
+						<label>Senha</label>
+						<input name='senha' id="senha" type="password" class="form-control" maxLength="12" value=""/>
 					</div>
 
 					<div class="form-group">
-						<label for="nome">Confirmar Senha</label>
-						<input id="dt-nasc" type="password" class="form-control"/>
+						<label>Confirmar Senha</label>
+						<input name='senha2' id="senha2" type="password" class="form-control" maxLength="12" value=""/>
 					</div>
 
 					<div class="form-group">
 						<label for="tipo_usuario">Intuito do Cadastro:</label>
 				    <div class="form-group-text">
-							<label for="usuario_cliente">Locar Serviços: </label>
-				      <input id="tipo_cliente" type="checkbox" >
+							<label for="tipo_cliente">Locar Serviços: </label>
+				      <input name='tipo_cliente' id="tipo_cliente" type="checkbox">
 				    </div>
 				    <div class="form-group-text">
-							<label for="usuario_cliente">Fornecer Serviços:</label>
-				      <input id="tipo_fornecedor" type="checkbox" >
+							<label for="tipo_fornecedor">Fornecer Serviços:</label>
+				      <input name='tipo_fornecedor' id="tipo_fornecedor" type="checkbox">
 				    </div>
 					</div>
 
 					<div class="form-group">
-						<label for="nome">Nome Completo</label>
-						<input id="nome" type="text" class="form-control"/>
+						<label>Nome Completo</label>
+						<input name='nomeCompleto' id="nomeCompleto" type="text" class="form-control" maxLength="64" value=""/>
 					</div>
 
 					<div class="form-group">
-						<label for="nome">Data de Nascimento</label>
-						<input id="dt-nasc" type="date" class="form-control"/>
+						<label>Data de Nascimento</label>
+						<input name='dtNasc' id="dtNasc" type="date" class="form-control" value=""/>
 					</div>
 
 					<div class="form-group">
-						<label for="nome">RG</label>
-						<input id="rg" type="text" class="form-control" maxLength="10"/>
+						<label>RG</label>
+						<input name='rg' id="rg" type="text" class="form-control" maxLength="10" value=""/>
 					</div>
 
 					<div class="form-group">
-						<label for="nome">CPF</label>
-						<input id="cpf" type="text" class="form-control" data-mask="000.000.000-00" maxLength="11	"/>
+						<label>CPF</label>
+						<input name='cpf' id="cpf" type="text" class="form-control" data-mask="000.000.000-00" maxLength="11" value=""/>
 					</div>
 
 					<div class="form-group">
-						<label for="nome">Telefone</label>
-						<input id="telfone" type="text" class="form-control"/>
+						<label>Telefone</label>
+						<input name='telefone' id="telefone" type="text" class="form-control" maxLength="11" value=""/>
 					</div>
 
 					<div class="form-group">
-						<label for="contato">Localização</label>
+						<label>Localização</label>
 						<div class="form-inline">
 							<select name="estado" class="form-control">
 								<?php
 									opt_select_estado();
 								?>
 							</select>
-							<input id="cidade" type="text" class="form-control" value="Digite sua Cidade"/>
+							<input name='cidade' id="cidade" type="text" class="form-control" maxLength="64" value=""/>
 						</div>
 					</div>
 
 					<div class="form-group">
-						<label for="nome">Endereço</label>
-						<input id="endereco" type="text" class="form-control"/>
+						<label>Endereço</label>
+						<input name='endereco' id="endereco" type="text" class="form-control" maxLength="64" value=""/>
 					</div>
 
 					<div class="form-inline">
 						<div class="form-group">
-							<label for="nome">Numero</label>
-							<input id="numero-end" type="text" class="form-control"/>
+							<label>Numero</label>
+							<input name='numeroEnd' id="numeroEnd" type="text" class="form-control" maxLength="8" value=""/>
 						</div>
 
 						<div class="form-group">
-							<label for="nome">Bairro</label>
-							<input id="bairro" type="text" class="form-control"/>
+							<label>Bairro</label>
+							<input name='bairro' id="bairro" type="text" class="form-control" maxLength="64" value=""/>
 						</div>
 					</div>
 
 					<div class="form-group">
-						<label for="contato">Email</label>
+						<label>Email</label>
 						<div class="input-group">
 							<div class="input-group-addon"><svg-icon class="glyph-icon"><src href="static/sprite/sprite.svg#si-glyph-mail"/></svg></div>
-							<input id="email" type="text" class="form-control"/>
+							<input name='email' id="email" type="text" class="form-control" maxLength="64" value=""/>
 						</div>
 					</div>
 
@@ -128,19 +128,23 @@
 		</section>
 
 <script>
-	$("#form_cadCliente").submit(function(event){
-		event.preventDefault();
-		
-		$.ajax({
-			type: "POST",
-			url: 'static/php/teste.php',
-			data: $('#form_cadCliente').serialize(),
-			success: function(response){
-				//$('#Modal .modal-header .modal-title').html("Resultado em POST");
-				//$('#Modal .modal-body').html(response);
-			};
-		});
-	});
+	function submitForm(){
+		var form = document.querySelector('form');
+		xhr = new XMLHttpRequest();
+
+		xhr.open('POST', 'static/php/class-valida-cad-cli.php?id=1231231231');
+		xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+		xhr.onload = function() {
+			if (xhr.status === 200) {
+				alert(xhr.responseText);
+			}
+			else if (xhr.status !== 200) {
+				alert('Request failed.  Returned status of ' + xhr.status);
+			}
+		};
+		xhr.send(encodeURI(new URLSearchParams(new FormData(form)).toString()));
+
+	}
 </script>
 
 <?php

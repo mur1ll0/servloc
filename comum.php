@@ -1,4 +1,5 @@
-<?/*
+<?php
+/*
 ###########################################################
 #          --RECURSOS EM COMUM ENTRE AS PÁGINAS--         #
 #                                                         #
@@ -96,7 +97,7 @@
 		</div>
 	</div>
 
-		<script src="static/layout/javascripts/jquery-1.11.1.min.js"></script>		
+		<script src="static/layout/javascripts/jquery-1.11.1.min.js"></script>
 		<script src="static/layout/javascripts/vendors.min.js"></script>
 		<script src="static/layout/javascripts/algaworks.min.js"></script>
 		<script src="static/javascripts/vendors/jquery.maskMoney.min.js"></script>
