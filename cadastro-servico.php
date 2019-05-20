@@ -36,7 +36,7 @@
 					// 	query("INSERT into servicos (nome, descricao, estado, cidade) values ('".$_POST['nome']."' , '". $_POST['desc']."' , '". $_POST['estado']."' , '". $_POST['cidade']."');");
 					// } -->
 
-				<form onsubmit="submitForm();return false;" id="form_cadServico" method="POST" class="form-vertical js-form-loading" target="cadastro-servico.php">
+				<form onsubmit="submitForm();return false;" id="form_cadServico" method="POST" class="form-vertical js-form-loading" target="">
 
 					<div class="form-group">
 						<label for="nome">Nome</label>
