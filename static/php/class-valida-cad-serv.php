@@ -43,6 +43,7 @@
   }
 
   if ($ok){
+			//Para decriptografar quando usar encodeURI, usar rawurldecode()
 			$nomeServ = isset($_POST['nome'])?$_POST['nome']:'';
 			$descServ = isset($_POST['desc'])?$_POST['desc']:'';
 			$estadoServ = strtoupper(isset($_POST['estado'])?$_POST['estado']:'');
