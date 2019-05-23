@@ -145,7 +145,7 @@
 			
 			//LOGIN
 			function login(){
-				var form = document.querySelector('form');
+				var form = document.getElementById('form_login');
 				xhr = new XMLHttpRequest();
 
 				xhr.open('POST', 'static/php/class-valida-login.php');

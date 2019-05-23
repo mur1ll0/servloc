@@ -109,7 +109,7 @@
 
 	<script>
 		function submitForm(){
-			var form = document.querySelector('form');
+			var form = document.getElementById('form_cadServico');
 			xhr = new XMLHttpRequest();
 
 			xhr.open('POST', 'static/php/class-valida-cad-serv.php');

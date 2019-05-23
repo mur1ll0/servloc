@@ -129,7 +129,7 @@
 
 <script>
 	function submitForm(){
-		var form = document.querySelector('form');
+		var form = document.getElementById('form_cadCliente');
 		xhr = new XMLHttpRequest();
 
 		xhr.open('POST', 'static/php/class-valida-cad-cli.php?id=1231231231');
