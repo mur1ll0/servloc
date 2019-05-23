@@ -132,7 +132,7 @@
 		var form = document.getElementById('form_cadCliente');
 		xhr = new XMLHttpRequest();
 
-		xhr.open('POST', 'static/php/class-valida-cad-cli.php?id=1231231231');
+		xhr.open('POST', 'static/php/class-valida-cad-cli.php');
 		xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 		xhr.onload = function() {
 			if (xhr.status === 200) {
