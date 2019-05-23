@@ -43,7 +43,7 @@
 		<!-- Buscador -->
 		<div class="container">
 			<form method="POST" target="">
-			
+
 				<!-- String -->
 				<div class="row">
 					<div class="col-lg-12">
@@ -87,45 +87,40 @@
 			</form>
 		</div>
 		<!-- Resultados -->
-		<div class="container">
-			<table id="servtable" class="table table-bordered table-hover">
-				<thead class="thead-dark">
-					<tr>
-						<th>Nome</th>
-						<th>Descrição</th>
-						<th>Estado</th>
-						<th>Cidade</th>
-					</tr>
-				</thead>
-				<tbody>
-					<?php
+		<section>
+			<div class="container">
+				<div class="icon-list">
+						<?php
 						if (isset($_POST['search'])){
+
 							if($_POST['estado'] == '*') $_POST['estado'] = '';
-							
+
 							$sqlquery = "SELECT
-											*
-										FROM
-											servicos
-										WHERE
-											(nome LIKE '%".$_POST['searchString']."%' OR descricao LIKE '%".$_POST['searchString']."%')
-											AND estado LIKE '%".$_POST['estado']."%'
-											AND cidade LIKE '%".$_POST['cidade']."%'
-											;"; //AND categoria='". $_POST['categoria']."'
+							*
+							FROM
+							servicos
+							WHERE
+							(nome LIKE '%".$_POST['searchString']."%' OR descricao LIKE '%".$_POST['searchString']."%')
+							AND estado LIKE '%".$_POST['estado']."%'
+							AND cidade LIKE '%".$_POST['cidade']."%';"; //AND categoria='". $_POST['categoria']."'
 							$resultado = query($sqlquery);
 							foreach ($resultado as $row){
-									echo "<tr>";
-									echo "<td>".$row[1]."</td>";
-									echo "<td>".$row[2]."</td>";
-									echo "<td>".$row[3]."</td>";
-									echo "<td>".$row[4]."</td>";
-									echo "</tr>";
+								echo "<a href='/servloc/index.php'>";
+								echo "<div class='search-icons col-lg-3 col-md-3 col-sm-12 p-0'>";
+								echo "<p class='titulo'>".$row[1]."</p>";
+								echo "<p class='not-titulo'>".$row[2]."</p>";
+								echo "<p class='not-titulo'>".$row[3]."</p>";
+								echo "<p class='not-titulo'>".$row[4]."</p>";
+								echo "</div>";
+								echo '</a>';
 							}
 						}
-					?>
-				</tbody>
-			</table>
-		</div>
-	</section>
+						?>
+
+				</div>
+			</div>
+		</section>
+	</div>
 
 
 <?php

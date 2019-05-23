@@ -65,7 +65,7 @@
 									echo <input name="cidade" type="text" class="form-control" value="Digite sua Cidade"/>
 								}*/
 							?>
-							<input name="cidade" type="text" class="form-control" value="Digite sua Cidade" value="<?php if (isset($data)) echo $data['author']; ?>"/>
+							<input name="cidade" type="text" class="form-control" placeholder="Digite sua Cidade" value="<?php if (isset($data)) echo $data['author']; ?>"/>
 						</div>
 					</div>
 

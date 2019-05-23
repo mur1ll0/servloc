@@ -8,6 +8,7 @@
 .navbar-brand {
   padding: 0px;
 }
+
 .navbar-brand>img {
   height: 100%;
   padding: 15px;
@@ -39,7 +40,30 @@
 	display: none;
 }
 
+.icon-list{
+  width: inherit;
+	font-size: 12px;
+}
 
+.search-icons{
+  padding: 5px;
+  margin: 5px;
+  width: 30%;
+  border-style: outset;
+	border-radius: 14px;
+
+}
+
+.titulo{
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.not-titulo{
+  font-size: 14px;
+  text-align: center;
+}
 /*
 ##########################
 # BOX, GRIDS
@@ -54,6 +78,7 @@
 	border-radius: 14px;
 	padding-bottom: 15px;
 }
+
 .borda-inv{
 	border-width: 2px;
 	border-radius: 14px;
@@ -70,6 +95,7 @@ COMPONENTES
 .bw-field-action{
 	display: flex;
 }
+
 .bw-field-action_icon{
 	margin: 5px 0 0 5px;
 }
@@ -92,4 +118,8 @@ COMPONENTES
 /* DATA TABLE */
 .selected{
 	background-color: #D3D3D3;
+}
+
+a{
+  color:inherit;
 }
