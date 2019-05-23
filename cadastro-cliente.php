@@ -142,7 +142,7 @@
 				alert('Request failed.  Returned status of ' + xhr.status);
 			}
 		};
-		xhr.send(encodeURI(new URLSearchParams(new FormData(form)).toString()));
+		//xhr.send(encodeURI(new URLSearchParams(new FormData(form)).toString()));
 		xhr.send(new URLSearchParams(new FormData(form)).toString());
 
 	}
