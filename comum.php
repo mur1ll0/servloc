@@ -13,6 +13,9 @@
 
 <?php
 	require 'static/php/connection.php';
+	
+	$data = $_POST[0];
+	var_dump($data);
 
 
 	/*---------------------------------
@@ -47,7 +50,26 @@
 						<ul class="nav navbar-nav navbar-right">
 							<li class="active"><a href="/servloc/index.php">Home</a></li>
 							<li><a href="/servloc/cadastro-servico.php">Cadastrar Serviços</a></li>
-							<li><a href="#">Logar</a></li>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Logar</a>
+								<ul class="dropdown-menu">
+									<div class="container-fluid">
+										<form onsubmit="login();return false;" id="form_login" class="form-vertical  js-form-loading">
+											<div class="form-group">
+												<label>Usuário</label>
+												<input name='usuario' id="usuario" type="text" class="form-control" maxLength="10" value=""/>
+											</div>
+											<div class="form-group">
+												<label>Senha</label>
+												<input name='senha' id="senha" type="password" class="form-control" maxLength="12" value=""/>
+											</div>
+											<div class="form-group">
+												<button class="btn  btn-primary" type="submit">Entrar</button>
+											</div>
+										</form>
+									</div>
+								</ul>
+							</li>
 							<li><a href="/servloc/cadastro-cliente.php">Cadastrar Usuário</a></li>
 						</ul>
 					</div>
@@ -120,6 +142,25 @@
 			  }
 			});
 			$('.js-sidebar, .js-content').toggleClass('is-toggled');
+			
+			//LOGIN
+			function login(){
+				var form = document.querySelector('form');
+				xhr = new XMLHttpRequest();
+
+				xhr.open('POST', 'static/php/class-valida-login.php');
+				xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+				xhr.onload = function() {
+					if (xhr.status === 200) {
+						alert(xhr.responseText);
+					}
+					else if (xhr.status !== 200) {
+						alert('Request failed.  Returned status of ' + xhr.status);
+					}
+				};
+				xhr.send(new URLSearchParams(new FormData(form)).toString());
+
+			}
 		</script>
 
 <?php
