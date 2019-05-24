@@ -64,6 +64,10 @@
   font-size: 14px;
   text-align: center;
 }
+
+.visualizar{
+  float: right;
+}
 /*
 ##########################
 # BOX, GRIDS

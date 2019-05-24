@@ -100,7 +100,11 @@
 							FROM
 							servicos
 							WHERE
-							(nome LIKE '%".$_POST['searchString']."%' OR descricao LIKE '%".$_POST['searchString']."%')
+							(
+									nome LIKE '%".$_POST['searchString']."%'
+									OR descricao LIKE '%".$_POST['searchString']."%'
+									or tags LIKE '%".$_POST['searchString']."%'
+							)
 							AND estado LIKE '%".$_POST['estado']."%'
 							AND cidade LIKE '%".$_POST['cidade']."%';"; //AND categoria='". $_POST['categoria']."'
 							
@@ -113,6 +117,8 @@
 								echo "<p class='not-titulo'>".$row[2]."</p>";
 								echo "<p class='not-titulo'>".$row[3]."</p>";
 								echo "<p class='not-titulo'>".$row[4]."</p>";
+								echo "<p class='not-titulo'>".$row[6]."</p>";
+								echo "<button type='button' class='btn btn-danger wrn-btn visualizar'>Visualizar</button>";
 								echo "</div>";
 								echo '</a>';
 							}
