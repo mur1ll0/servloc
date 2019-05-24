@@ -111,6 +111,7 @@
 								echo "<p class='not-titulo'>".$row[2]."</p>";
 								echo "<p class='not-titulo'>".$row[3]."</p>";
 								echo "<p class='not-titulo'>".$row[4]."</p>";
+								echo "<button type='button' class='btn btn-danger wrn-btn visualizar'>Visualizar</button>";
 								echo "</div>";
 								echo '</a>';
 							}
