@@ -21,7 +21,7 @@
     $ok = false;
     $msgErro = $msgErro.' '.'Preencha o estado que será prestado para o serviço.';
   }
-  if ($ok && (empty($_POST['cidade']) || $_POST['cidade'] == 'Digite sua Cidade')){
+  if ($ok && (empty($_POST['cidade']))){
     $ok = false;
     $msgErro = $msgErro.' '.'Preencha o cidade que será prestado para o serviço.';
   }
