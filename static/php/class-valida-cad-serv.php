@@ -21,7 +21,7 @@
     $ok = false;
     $msgErro = $msgErro.' '.'Preencha o estado que será prestado para o serviço.';
   }
-  if ($ok && (empty($_POST['cidade']))){
+  if ($ok && (empty($_POST['cidade']) || $_POST['cidade'] == 'Digite sua Cidade')){
     $ok = false;
     $msgErro = $msgErro.' '.'Preencha o cidade que será prestado para o serviço.';
   }
@@ -48,18 +48,16 @@
 			$descServ = isset($_POST['desc'])?$_POST['desc']:'';
 			$estadoServ = strtoupper(isset($_POST['estado'])?$_POST['estado']:'');
 			$cidadeServ = isset($_POST['cidade'])?$_POST['cidade']:'';
-			$tagsServ = isset($_POST['tags'])?$_POST['tags']:'';
       $ativoServ = 1;
 
       query("INSERT into servicos
-                (nome, descricao, estado, cidade, ativo, tags)
+                (nome, descricao, estado, cidade, ativo)
               values
                 ('".$nomeServ."',
                   '".$descServ."',
                   '".$estadoServ."',
                   '".$cidadeServ."',
-                  '".$ativoServ."',
-								'".$tagsServ."');");
+                  '".$ativoServ."');");
 		  echo "Serviço cadastrado com sucesso.";
   }else{
     echo $msgErro;

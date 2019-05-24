@@ -17,6 +17,7 @@
 	$data = $_POST[0];
 	var_dump($data);
 
+	session_start();
 
 	/*---------------------------------
 	--   Cabeçalho da Página, MENU   --
