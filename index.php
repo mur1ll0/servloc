@@ -103,9 +103,11 @@
 							(nome LIKE '%".$_POST['searchString']."%' OR descricao LIKE '%".$_POST['searchString']."%')
 							AND estado LIKE '%".$_POST['estado']."%'
 							AND cidade LIKE '%".$_POST['cidade']."%';"; //AND categoria='". $_POST['categoria']."'
+							
 							$resultado = query($sqlquery);
+							
 							foreach ($resultado as $row){
-								echo "<a href='/servloc/index.php'>";
+								echo "<a href='/servloc/visualizar-servico.php?codigo=".$row[0]."'>";
 								echo "<div class='search-icons col-lg-3 col-md-3 col-sm-12 p-0'>";
 								echo "<p class='titulo'>".$row[1]."</p>";
 								echo "<p class='not-titulo'>".$row[2]."</p>";
