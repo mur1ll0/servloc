@@ -10,6 +10,7 @@ CREATE TABLE servicos (
 	descricao varchar(200),
 	estado varchar(2) NOT NULL,
 	cidade varchar(40),
+	tags varchar(64),
 	ativo int(1) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -44,5 +45,3 @@ CREATE TABLE servicos_categorias (
 	FOREIGN KEY (servico) REFERENCES servicos (codigo),
 	FOREIGN KEY (categoria) REFERENCES categorias (codigo)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8
-
-ALTER TABLE servicos ADD COLUMN tags varchar(64);
