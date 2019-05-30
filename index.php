@@ -94,7 +94,7 @@
 						if (isset($_POST['search'])){
 
 							if($_POST['estado'] == '*') $_POST['estado'] = '';
-							
+
 							//Comando para busca por trecho avançada do Carlão
 							$_POST['searchString'] = str_ireplace(' ', '%', $_POST['searchString']);
 
