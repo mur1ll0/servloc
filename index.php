@@ -114,16 +114,16 @@
 							$resultado = query($sqlquery);
 
 							foreach ($resultado as $row){
-								echo "<a href='/servloc/visualizar-servico.php?codigo=".$row[0]."'>";
-									echo "<div class='search-icons col-lg-3 col-md-3 col-sm-12 p-0'>";
+								echo "<div class='search-icons col-lg-3 col-md-3 col-sm-12 p-0'>";
+									echo "<a href='/servloc/visualizar-servico.php?codigo=".$row[0]."'>";
 										echo "<button type='button' class='btn btn-danger wrn-btn visualizar'>Visualizar</button>";
-										echo "<p class='titulo'>".$row[1]."</p>";
-										echo "<p class='not-titulo'>".$row[2]."</p>";
-										echo "<p class='not-titulo'>".$row[3]."</p>";
-										echo "<p class='not-titulo'>".$row[4]."</p>";
-										echo "<p class='not-titulo'>".$row[6]."</p>";
-									echo "</div>";
-								echo '</a>';
+									echo '</a>';
+									echo "<p class='titulo'>".$row[1]."</p>";
+									echo "<p class='not-titulo'>".$row[2]."</p>";
+									echo "<p class='not-titulo'>".$row[3]."</p>";
+									echo "<p class='not-titulo'>".$row[4]."</p>";
+									echo "<p class='not-titulo'>".$row[6]."</p>";
+								echo "</div>";
 							}
 						}
 						?>
