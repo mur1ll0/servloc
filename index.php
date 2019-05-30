@@ -97,7 +97,7 @@
 
 							//Comando para busca por trecho avançada do Carlão
 							$_POST['searchString'] = strtolower(str_ireplace(' ', '|', $_POST['searchString']));
-							
+
 							$sqlquery = "SELECT
 							*
 							FROM
@@ -109,7 +109,8 @@
 									or lower(tags) REGEXP '".$_POST['searchString']."'
 							)
 							AND estado LIKE '%".$_POST['estado']."%'
-							AND cidade LIKE '%".$_POST['cidade']."%';"; //AND categoria='". $_POST['categoria']."'
+							AND cidade LIKE '%".$_POST['cidade']."%'
+							AND ativo = 1;"; //AND categoria='". $_POST['categoria']."'
 
 							$resultado = query($sqlquery);
 
