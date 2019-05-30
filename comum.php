@@ -50,6 +50,7 @@
 						<ul class="nav navbar-nav navbar-right">
 							<li class="active"><a href="/servloc/index.php">Home</a></li>
 							<li><a href="/servloc/cadastro-servico.php">Cadastrar Serviços</a></li>
+							<li><a href="/servloc/cadastro-categoria.php">Cadastrar Categorias</a></li>
 							<?php
 							if (!isset($_SESSION['user_id'])){
 							?>
@@ -191,7 +192,7 @@
 				};
 				xhr.send(new URLSearchParams(new FormData(form)).toString());
 			}
-				
+
 			//LOGOUT
 			function logout(){
 				var form = document.getElementById('form_login');
