@@ -15,6 +15,8 @@
 	require 'static/php/connection.php';
 
 	session_start();
+	
+	var_dump($_SESSION['user_id']);
 
 	/*---------------------------------
 	--   Cabeçalho da Página, MENU   --
@@ -149,7 +151,7 @@
 		</div>
 	</div>
 
-		<script src="static/layout/javascripts/jquery-1.11.1.min.js"></script>
+		<script src="static/javascripts/vendors/jquery-1.11.1.min.js"></script>
 		<script src="static/layout/javascripts/vendors.min.js"></script>
 		<script src="static/layout/javascripts/algaworks.min.js"></script>
 		<script src="static/javascripts/vendors/jquery.maskMoney.min.js"></script>

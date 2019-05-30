@@ -37,7 +37,7 @@
 						<input name="nome" type="text" class="form-control" value="<?php if (isset($data)) echo $data['author']; ?>"/>
 					</div>
 					<div class="form-group">
-						<button class="btn  btn-primary" type="submit">Cadastrar Serviço</button>
+						<button class="btn  btn-primary" type="submit">Cadastrar Categoria</button>
 					</div>
 
 				</form>
