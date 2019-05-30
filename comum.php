@@ -13,9 +13,6 @@
 
 <?php
 	require 'static/php/connection.php';
-	
-	$data = $_POST[0];
-	var_dump($data);
 
 	session_start();
 
@@ -46,7 +43,7 @@
 						<img alt="SERVLOC" src="static/img/logo.png"/>
 					  </a>
 					</div>
-				
+
 					<div id="navbar2" class="navbar-collapse collapse">
 						<ul class="nav navbar-nav navbar-right">
 							<li class="active"><a href="/servloc/index.php">Home</a></li>
@@ -106,7 +103,7 @@
 						</ul>
 					</div>
 				</div>
-				
+
 			    <!--ul class="nav navbar-nav  navbar-right">
 			      <li class="dropdown">
 			        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -174,7 +171,7 @@
 			  }
 			});
 			$('.js-sidebar, .js-content').toggleClass('is-toggled');
-			
+
 			//LOGIN
 			function login(){
 				var form = document.getElementById('form_login');
