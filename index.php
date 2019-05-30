@@ -96,17 +96,17 @@
 							if($_POST['estado'] == '*') $_POST['estado'] = '';
 							
 							//Comando para busca por trecho avançada do Carlão
-							$_POST['searchString'] = str_ireplace(' ', '%', $_POST['searchString']);
-
+							$_POST['searchString'] = strtolower(str_ireplace(' ', '|', $_POST['searchString']));
+							
 							$sqlquery = "SELECT
 							*
 							FROM
 							servicos
 							WHERE
 							(
-									nome LIKE '%".$_POST['searchString']."%'
-									OR descricao LIKE '%".$_POST['searchString']."%'
-									or tags LIKE '%".$_POST['searchString']."%'
+									lower(nome) REGEXP '".$_POST['searchString']."'
+									OR lower(descricao) REGEXP '".$_POST['searchString']."'
+									or lower(tags) REGEXP '".$_POST['searchString']."'
 							)
 							AND estado LIKE '%".$_POST['estado']."%'
 							AND cidade LIKE '%".$_POST['cidade']."%';"; //AND categoria='". $_POST['categoria']."'

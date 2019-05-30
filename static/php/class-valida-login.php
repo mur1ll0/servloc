@@ -1,14 +1,18 @@
 <?php
+	session_start();
 	require '../../static/php/connection.php';
-  $ok = true;
-  $msgErro = '';
+	
 
-  if ($ok){
 	if (isset($_POST['usuario'])){
+		$_SESSION['user_id'] = 1;
+		$_SESSION['user_name'] = 'Teste';
 		echo 'Usuário logado: '.$_POST['usuario'];
 	}
-  }else{
-    echo $msgErro;
-  }
-
+	
+	if (isset($_GET['action'])){
+		if ($_GET['action'] == 'logout'){
+			session_destroy();
+		}
+	}
+	
 ?>

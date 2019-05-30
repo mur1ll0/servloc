@@ -51,11 +51,14 @@
 						<ul class="nav navbar-nav navbar-right">
 							<li class="active"><a href="/servloc/index.php">Home</a></li>
 							<li><a href="/servloc/cadastro-servico.php">Cadastrar Serviços</a></li>
+							<?php
+							if (!isset($_SESSION['user_id'])){
+							?>
 							<li class="dropdown">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Logar</a>
 								<ul class="dropdown-menu">
 									<div class="container-fluid">
-										<form onsubmit="login();return false;" id="form_login" class="form-vertical  js-form-loading">
+										<form onsubmit="login();" id="form_login" class="form-vertical  js-form-loading">
 											<div class="form-group">
 												<label>Usuário</label>
 												<input name='usuario' id="usuario" type="text" class="form-control" maxLength="10" value=""/>
@@ -72,6 +75,34 @@
 								</ul>
 							</li>
 							<li><a href="/servloc/cadastro-cliente.php">Cadastrar Usuário</a></li>
+							<?php
+							}
+							else{
+							?>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+								  <i class="fa  fa-user"></i>
+								</a>
+								<ul class="dropdown-menu">
+								  <li>
+									<div class="aw-logged-user">
+									  <img src="https://api.adorable.io/avatars/80/joaodascouves"
+										width="80" height="80" alt="João das Couves" class="aw-logged-user__picture" />
+									  <span class="aw-logged-user__name"><?php echo $_SESSION['user_name']?></span>
+									</div>
+								  </li>
+								  <li role="separator" class="divider"></li>
+								  <li><a href="#">Meu perfil</a></li>
+								  <li><a href="#">Alterar senha</a></li>
+								  <li><a href="#">Pagamentos</a></li>
+								</ul>
+							  </li>
+							  <li>
+								<a href="#" onclick="logout()"><em class="fa  fa-sign-out"></em></a>
+							  </li>
+							<?php
+							}
+							?>
 						</ul>
 					</div>
 				</div>
@@ -160,7 +191,23 @@
 					}
 				};
 				xhr.send(new URLSearchParams(new FormData(form)).toString());
+			}
+				
+			//LOGOUT
+			function logout(){
+				var form = document.getElementById('form_login');
+				xhr = new XMLHttpRequest();
 
+				xhr.open('GET', 'static/php/class-valida-login.php?action=logout', true);
+				xhr.onload = function() {
+					if (xhr.status === 200) {
+						alert(xhr.responseText);
+					}
+					else if (xhr.status !== 200) {
+						alert('Request failed.  Returned status of ' + xhr.status);
+					}
+				};
+				xhr.send(null);
 			}
 		</script>
 
