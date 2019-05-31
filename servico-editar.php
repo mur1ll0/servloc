@@ -117,22 +117,25 @@
 				var dados = new Array(2);
 				dados[0] = opcao;
 				dados[1] = servId;
-				xhr = new XMLHttpRequest();
-				xhr.open('POST', 'static/php/class-edita-serv.php');
-				xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-				xhr.onload = function() {
-					if (xhr.status === 200) {
-						if (opcao == 1){
-							location.replace = xhr.responseText;
-						}else{
-							alert(xhr.responseText);
-						}
-					}
-					else if (xhr.status !== 200) {
-						alert('Request failed.  Returned status of ' + xhr.status);
-					}
-				};
-				xhr.send(dados);
+				window.location.href = "http://localhost/servloc/cadastro-servico.php"
+
+
+				// xhr = new XMLHttpRequest();
+				// xhr.open('POST', 'static/php/class-edita-serv.php');
+				// xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+				// xhr.onload = function() {
+				// 	if (xhr.status === 200) {
+				// 		if (opcao == 1){
+				// 			location.replace = xhr.responseText;
+				// 		}else{
+				// 			alert(xhr.responseText);
+				// 		}
+				// 	}
+				// 	else if (xhr.status !== 200) {
+				// 		alert('Request failed.  Returned status of ' + xhr.status);
+				// 	}
+				// };
+				// xhr.send(dados);
 			}
 		</script>
 	</body>

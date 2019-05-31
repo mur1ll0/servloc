@@ -12,16 +12,16 @@
 */?>
 
 <?php
+
+
 	require 'static/php/connection.php';
 
 	session_start();
-	
-	var_dump($_SESSION['user_id']);
-
 	/*---------------------------------
 	--   Cabeçalho da Página, MENU   --
 	---------------------------------*/
 	function c_header(){
+		
 ?>
 	<!DOCTYPE html>
 	<html>

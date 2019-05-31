@@ -1,5 +1,6 @@
 <?php
 	require '../../static/php/connection.php';
+		var_dump('3124124');
   $ok = true;
   $msgErro = '';
   $dados = explode(',',key($_POST));
@@ -17,7 +18,6 @@
     }
   }else if ($ok && $dados[0] == 2){
     $result = query("SELECT * FROM servicos WHERE codigo = '".$dados[1]."' and ativo = 1;");
-    var_dump($result);
     if (sizeof($result[0]) > 0){
       header("Location: ../../cadastro-servico.php");
     }
