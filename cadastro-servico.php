@@ -1,14 +1,4 @@
 <?php
-/*
-###########################################################
-#                     --CADASTRO SERVIÇOS--               #
-#                                                         #
-#                Autor: Murillo André Maleski             #
-#                           SERVLOC                       #
-###########################################################
-*/?>
-
-<?php
 	require 'comum.php';
 
 	session_start();
@@ -16,7 +6,6 @@
 	c_header();
 
 	$data = $_POST[0];
-	var_dump($data);
 ?>
 
 	<div class="aw-layout-page">

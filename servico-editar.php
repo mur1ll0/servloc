@@ -37,7 +37,7 @@
 					  </tr>
 					</thead>
 					<tbody>
-						<?php $sqlquery = "SELECT codigo, titulo, descricao
+						<?php $sqlquery = "SELECT codigo, nome, descricao
 																FROM servicos
 																WHERE ativo = 1";
 							$resultado = query($sqlquery);
