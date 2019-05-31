@@ -56,8 +56,8 @@
 
 							</div>
 							<div class="col-lg-3 col-md-3 col-sm-12 p-0 search-box">
-								<button name="search" type="submit" class="btn btn-danger wrn-btn">Search</button>
-								<button name="advanced" id="advanced" type="button" class="btn btn-danger wrn-btn">Busca Avançada</button>
+								<button name="search" type="submit" class="btn btn-danger wrn-btn search-button">Search</button>
+								<button name="advanced" id="advanced" type="button" class="btn btn-danger wrn-btn search-button">Busca Avançada</button>
 							</div>
 						</div>
 					</div>
