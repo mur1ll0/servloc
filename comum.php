@@ -12,6 +12,8 @@
 */?>
 
 <?php
+
+
 	require 'static/php/connection.php';
 
 	session_start();
@@ -20,6 +22,7 @@
 	--   Cabeçalho da Página, MENU   --
 	---------------------------------*/
 	function c_header(){
+		
 ?>
 	<!DOCTYPE html>
 	<html>

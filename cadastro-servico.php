@@ -4,6 +4,7 @@
 	session_start();
 
 	c_header();
+		var_dump('1245');
 
 	$data = $_POST[0];
 ?>

@@ -37,7 +37,7 @@
 						<input name="nome" type="text" class="form-control" value="<?php if (isset($data)) echo $data['author']; ?>"/>
 					</div>
 					<div class="form-group">
-						<button class="btn  btn-primary" type="submit">Cadastrar Serviço</button>
+						<button class="btn  btn-primary" type="submit">Cadastrar Categoria</button>
 					</div>
 
 				</form>
@@ -53,7 +53,7 @@
 			var form = document.getElementById('form_cadServico');
 			xhr = new XMLHttpRequest();
 
-			xhr.open('POST', 'static/php/class-valida-cad-serv.php');
+			xhr.open('POST', 'static/php/class-valida-categoria.php');
 			xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 			xhr.onload = function() {
 				if (xhr.status === 200) {

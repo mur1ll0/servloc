@@ -1,6 +1,6 @@
 <?/*
 ###########################################################
-#                      --EDITAR SERVIÇOS--                #
+#                     --BUSCAR CATEGORIAS--               #
 #                                                         #
 #                Autor: Murillo André Maleski             #
 #                           SERVLOC                       #
@@ -22,7 +22,7 @@
 			<div class="page-header">
 				<div class="container-fluid">
 					<h1>
-						Serviços
+						Categorias
 					</h1>
 				</div>
 			</div>
@@ -33,19 +33,16 @@
 						<tr>
 						<th>ID</th>
 						<th>Nome</th>
-						<th>Descrição</th>
 					  </tr>
 					</thead>
 					<tbody>
-						<?php $sqlquery = "SELECT codigo, nome, descricao
-																FROM servicos
-																WHERE ativo = 1";
+						<?php $sqlquery = "SELECT codigo, nome
+																FROM categorias";
 							$resultado = query($sqlquery);
 							foreach ($resultado as $row	) {
 							  echo "<tr>";
 									echo "<td>". $row[0]. "</td>";
 									echo "<td>". $row[1]. "</td>";
-									echo "<td>". $row[2]. "</td>";
 								echo "</tr>";
 							}
 
@@ -104,38 +101,35 @@
 				});
 				$('#btn-excluir').click(function(){
 					var dados = table.row('.selected').data();
-					editaServ(1,dados[0]);
+					editaCateg(1,dados[0]);
 					table.row('.selected').remove().draw(false);
 				});
 				$('#btn-editar').click(function(){
 					var dados = table.row('.selected').data();
-					editaServ(2,dados[0]);
+					editaCateg(2,dados[0]);
 				});
 			});
 
-			function editaServ(opcao,servId){
+			function editaCateg(opcao,servId){
 				var dados = new Array(2);
 				dados[0] = opcao;
 				dados[1] = servId;
-				window.location.href = "http://localhost/servloc/cadastro-servico.php"
-
-
-				// xhr = new XMLHttpRequest();
-				// xhr.open('POST', 'static/php/class-edita-serv.php');
-				// xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-				// xhr.onload = function() {
-				// 	if (xhr.status === 200) {
-				// 		if (opcao == 1){
-				// 			location.replace = xhr.responseText;
-				// 		}else{
-				// 			alert(xhr.responseText);
-				// 		}
-				// 	}
-				// 	else if (xhr.status !== 200) {
-				// 		alert('Request failed.  Returned status of ' + xhr.status);
-				// 	}
-				// };
-				// xhr.send(dados);
+				xhr = new XMLHttpRequest();
+				xhr.open('POST', 'static/php/class-edita-categ.php');
+				xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+				xhr.onload = function() {
+					if (xhr.status === 200) {
+						if (opcao == 1){
+							location.replace = xhr.responseText;
+						}else{
+							alert(xhr.responseText);
+						}
+					}
+					else if (xhr.status !== 200) {
+						alert('Request failed.  Returned status of ' + xhr.status);
+					}
+				};
+				xhr.send(dados);
 			}
 		</script>
 	</body>

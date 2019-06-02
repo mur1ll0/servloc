@@ -56,8 +56,8 @@
 
 							</div>
 							<div class="col-lg-3 col-md-3 col-sm-12 p-0 search-box">
-								<button name="search" type="submit" class="btn btn-danger wrn-btn">Search</button>
-								<button name="advanced" id="advanced" type="button" class="btn btn-danger wrn-btn">Busca Avançada</button>
+								<button name="search" type="submit" class="btn btn-danger wrn-btn search-button">Search</button>
+								<button name="advanced" id="advanced" type="button" class="btn btn-danger wrn-btn search-button">Busca Avançada</button>
 							</div>
 						</div>
 					</div>
@@ -97,7 +97,7 @@
 
 							//Comando para busca por trecho avançada do Carlão
 							$_POST['searchString'] = strtolower(str_ireplace(' ', '|', $_POST['searchString']));
-							
+
 							$sqlquery = "SELECT
 							*
 							FROM
@@ -109,7 +109,8 @@
 									or lower(tags) REGEXP '".$_POST['searchString']."'
 							)
 							AND estado LIKE '%".$_POST['estado']."%'
-							AND cidade LIKE '%".$_POST['cidade']."%';"; //AND categoria='". $_POST['categoria']."'
+							AND cidade LIKE '%".$_POST['cidade']."%'
+							AND ativo = 1;"; //AND categoria='". $_POST['categoria']."'
 
 							$resultado = query($sqlquery);
 
