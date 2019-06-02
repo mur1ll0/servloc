@@ -15,8 +15,6 @@
 	require 'static/php/connection.php';
 
 	session_start();
-	
-	var_dump($_SESSION['user_id']);
 
 	/*---------------------------------
 	--   Cabeçalho da Página, MENU   --
@@ -58,7 +56,8 @@
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Logar</a>
 								<ul class="dropdown-menu">
 									<div class="container-fluid">
-										<form onsubmit="login();" id="form_login" class="form-vertical  js-form-loading">
+										<!--form onsubmit="login();" id="form_login" class="form-vertical  js-form-loading"-->
+										<form onsubmit="login(); return false;" id="form_login" method="POST" class="form-vertical  js-form-loading">
 											<div class="form-group">
 												<label>Usuário</label>
 												<input name='usuario' id="usuario" type="text" class="form-control" maxLength="10" value=""/>
@@ -68,7 +67,7 @@
 												<input name='senha' id="senha" type="password" class="form-control" maxLength="12" value=""/>
 											</div>
 											<div class="form-group">
-												<button class="btn  btn-primary" type="submit">Entrar</button>
+												<button id="login_but" class="btn  btn-primary" type="submit">Entrar</button>
 											</div>
 										</form>
 									</div>
@@ -98,7 +97,7 @@
 								</ul>
 							  </li>
 							  <li>
-								<a href="#" onclick="logout()"><em class="fa  fa-sign-out"></em></a>
+								<a href="" onclick="logout();"><em class="fa  fa-sign-out"></em></a>
 							  </li>
 							<?php
 							}
@@ -184,18 +183,18 @@
 				xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 				xhr.onload = function() {
 					if (xhr.status === 200) {
-						alert(xhr.responseText);
+						if (xhr.responseText.length > 0) alert(xhr.responseText);
+						else location.reload();
 					}
 					else if (xhr.status !== 200) {
 						alert('Request failed.  Returned status of ' + xhr.status);
 					}
 				};
-				xhr.send(new URLSearchParams(new FormData(form)).toString());
+				xhr.send(encodeURI(new URLSearchParams(new FormData(form)).toString()));
 			}
 
 			//LOGOUT
 			function logout(){
-				var form = document.getElementById('form_login');
 				xhr = new XMLHttpRequest();
 
 				xhr.open('GET', 'static/php/class-valida-login.php?action=logout', true);
