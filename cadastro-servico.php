@@ -4,8 +4,10 @@
 	session_start();
 
 	c_header();
-
-	$data = $_POST[0];
+	
+	if (isset($_GET['edit'])){
+		$loadData = query("SELECT * from servicos where codigo = ".$_GET['edit'].";");
+	}
 ?>
 
 	<div class="aw-layout-page">
@@ -14,47 +16,36 @@
 			<div class="page-header">
 				<div class="container-fluid">
 					<h1>
-						Cadastro de serviço
+						<?php if (isset($_GET['edit'])) echo 'Editar serviço '.$loadData[0][0];
+						else echo 'Cadastro de serviço'; ?>
 					</h1>
 				</div>
 			</div>
 
 			<div class="container-fluid">
-					<!-- // if (isset($_POST['nome'])){
-					// 	echo "<h1>Serviço cadastrado: ".$_POST['nome']."</h1>";
-					// 	query("INSERT into servicos (nome, descricao, estado, cidade) values ('".$_POST['nome']."' , '". $_POST['desc']."' , '". $_POST['estado']."' , '". $_POST['cidade']."');");
-					// } -->
-
-				<form onsubmit="submitForm();return false;" id="form_cadServico" method="POST" class="form-vertical js-form-loading" target="">
+				<form onsubmit="<?php if (isset($_GET['edit'])) echo 'editForm(); return false;'; else echo 'submitForm();return false;';?>" id="form_cadServico" method="POST" class="form-vertical js-form-loading" target="">
 
 					<div class="form-group">
 						<label for="nome">Nome</label>
-						<input name="nome" type="text" class="form-control" value="<?php if (isset($data)) echo $data['author']; ?>"/>
+						<input name="nome" type="text" class="form-control" value="<?php if (isset($_GET['edit'])) echo $loadData[0][1]; ?>"/>
 					</div>
 
 					<div class="form-group">
 						<label for="desc">Descrição</label>
-						<textarea name="desc" rows="5" class="form-control" value="<?php if (isset($data)) echo $data['author']; ?>"></textarea>
+						<textarea name="desc" rows="5" class="form-control"><?php if (isset($_GET['edit'])) echo $loadData[0][2]; ?></textarea>
 					</div>
 
 					<div class="form-group">
 						<label for="contato">Localização</label>
 						<div class="form-inline">
-							<select name="estado" class="form-control" value="<?php if (isset($data)) echo $data['author']; ?>">
+							<select name="estado" class="form-control">
 								<?php
-									opt_select_estado();
+									$state = '';
+									if (isset($_GET['edit'])) $state = strtolower($loadData[0][3]);
+									opt_select_estado($state);
 								?>
 							</select>
-							<?php
-								/*if $_POST['edit'] == 1{
-									$result = query(Select form where id = 5)
-									echo "<input name='cidade' type='text' class='form-control' value='".$result[0][4]."'/>"
-								}
-								else{
-									echo <input name="cidade" type="text" class="form-control" value="Digite sua Cidade"/>
-								}*/
-							?>
-							<input name="cidade" type="text" class="form-control" placeholder="Digite sua Cidade" value="<?php if (isset($data)) echo $data['author']; ?>"/>
+							<input name="cidade" type="text" class="form-control" placeholder="Digite sua Cidade" value="<?php if (isset($_GET['edit'])) echo $loadData[0][4]; ?>"/>
 						</div>
 					</div>
 
@@ -69,7 +60,7 @@
 
 					<div class="form-group">
 						<label for="categorias">Tags</label>
-						<input type="text" class="form-control" name="tags"/>
+						<input type="text" class="form-control" name="tags" value="<?php if (isset($_GET['edit'])) echo $loadData[0][5]; ?>"/>
 					</div>
 
 					<div class="form-group">
@@ -85,7 +76,7 @@
 					</div>
 
 					<div class="form-group">
-						<button class="btn  btn-primary" type="submit">Cadastrar Serviço</button>
+						<button class="btn  btn-primary" type="submit"><?php if (isset($_GET['edit'])) echo 'Salvar serviço '.$loadData[0][0]; else echo 'Cadastrar Serviço'; ?></button>
 					</div>
 
 				</form>
@@ -116,17 +107,25 @@
 			xhr.send(new URLSearchParams(new FormData(form)).toString());
 
 		}
-	// function submitForm(){
-	// 	$.ajax({
-	// 		type: "POST",
-	// 		url: 'static/php/forms.php',
-	// 		data: $('#form_cadServico').serialize(),
-	// 		success: function(response){
-	// 			//$('#Modal .modal-header .modal-title').html("Resultado em POST");
-	// 			//$('#Modal .modal-body').html(response);
-	// 		}
-	// 	});
-	// }
+		
+		function editForm(){
+			var form = document.getElementById('form_cadServico');
+			xhr = new XMLHttpRequest();
+
+			xhr.open('POST', 'static/php/class-valida-edit-serv.php?edit=<?php echo $_GET['edit'];?>');
+			xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+			xhr.onload = function() {
+				if (xhr.status === 200) {
+					alert(xhr.responseText);
+					if (xhr.responseText == "Serviço salvo com sucesso.") location.reload();
+				}
+				else if (xhr.status !== 200) {
+					alert('Request failed.  Returned status of ' + xhr.status);
+				}
+			};
+			xhr.send(new URLSearchParams(new FormData(form)).toString());
+
+		}
 	</script>
 
 

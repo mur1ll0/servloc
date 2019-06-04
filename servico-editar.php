@@ -37,9 +37,13 @@
 					  </tr>
 					</thead>
 					<tbody>
-						<?php $sqlquery = "SELECT codigo, nome, descricao
-																FROM servicos
-																WHERE ativo = 1";
+						<?php $sqlquery = 'SELECT servicos.codigo, nome, descricao
+												FROM servicos
+												inner join servicos_pessoas on (servicos.codigo = servicos_pessoas.servico)
+												WHERE ativo = 1 and
+												pessoa = '.$_SESSION["user_id"].';';
+																
+																
 							$resultado = query($sqlquery);
 							foreach ($resultado as $row	) {
 							  echo "<tr>";
@@ -104,12 +108,12 @@
 				});
 				$('#btn-excluir').click(function(){
 					var dados = table.row('.selected').data();
-					editaServ(1,dados[0]);
+					//editaServ(1,dados[0]);
 					table.row('.selected').remove().draw(false);
 				});
 				$('#btn-editar').click(function(){
 					var dados = table.row('.selected').data();
-					editaServ(2,dados[0]);
+					window.location.href = '/servloc/cadastro-servico.php?edit='+dados[0];
 				});
 			});
 

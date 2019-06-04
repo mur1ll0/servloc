@@ -51,7 +51,7 @@
 							<div class="col-lg-9 col-md-3 col-sm-12 p-0 search-box">
 
 								<div class="container-fluid">
-									<input name="searchString" type="text" class="search-container form-control" placeholder="Pesquise por nome, descrição"/>
+									<input name="searchString" type="text" class="search-container form-control" placeholder="Pesquise por nome, descrição, tags"/>
 								</div>
 
 							</div>
@@ -68,7 +68,7 @@
 						<div class="col-lg-3 col-md-3 col-sm-12 p-0 search-box">
 							<select name="estado" class="form-control">
 								<?php
-									opt_select_estado();
+									opt_select_estado('');
 								?>
 							</select>
 						</div>
@@ -78,7 +78,7 @@
 						<div class="col-lg-3 col-md-3 col-sm-12 p-0 search-box">
 							<select name="categoria" class="form-control search-slt" id="exampleFormControlSelect1">
 								<?php
-									opt_select_servico();
+									opt_select_servico('');
 								?>
 							</select>
 						</div>
