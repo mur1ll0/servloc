@@ -50,8 +50,6 @@
 					<div id="navbar2" class="navbar-collapse collapse">
 						<ul class="nav navbar-nav navbar-right">
 							<li class="active"><a href="/servloc/index.php">Home</a></li>
-							<li><a href="/servloc/cadastro-servico.php">Cadastrar Serviços</a></li>
-							<li><a href="/servloc/cadastro-categoria.php">Cadastrar Categorias</a></li>
 							<?php
 							if (!isset($_SESSION['user_id'])){
 							?>
@@ -96,7 +94,12 @@
 								  <li role="separator" class="divider"></li>
 								  <li><a href="#">Meu perfil</a></li>
 								  <li><a href="#">Alterar senha</a></li>
-								  <li><a href="#">Pagamentos</a></li>
+								  <li><a href="/servloc/cadastro-servico.php">Cadastrar Serviços</a></li>
+								  <?php
+									if ($_SESSION['user_admin'] == 1){
+										echo '<li><a href="/servloc/cadastro-categoria.php">Cadastrar Categorias</a></li>';
+									}
+								  ?>
 								</ul>
 							  </li>
 							  <li>

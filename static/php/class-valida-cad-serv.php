@@ -1,5 +1,6 @@
 <?php
 	require '../../static/php/connection.php';
+	session_start();
   $ok = true;
   $msgErro = '';
 
@@ -43,22 +44,44 @@
   }
 
   if ($ok){
-			//Para decriptografar quando usar encodeURI, usar rawurldecode()
-			$nomeServ = isset($_POST['nome'])?$_POST['nome']:'';
-			$descServ = isset($_POST['desc'])?$_POST['desc']:'';
-			$estadoServ = strtoupper(isset($_POST['estado'])?$_POST['estado']:'');
-			$cidadeServ = isset($_POST['cidade'])?$_POST['cidade']:'';
-      $ativoServ = 1;
+	//Para decriptografar quando usar encodeURI, usar rawurldecode()
+	$nomeServ = isset($_POST['nome'])?$_POST['nome']:'';
+	$descServ = isset($_POST['desc'])?$_POST['desc']:'';
+	$estadoServ = strtoupper(isset($_POST['estado'])?$_POST['estado']:'');
+	$cidadeServ = isset($_POST['cidade'])?$_POST['cidade']:'';
+	
+	$ativoServ = 1;
 
-      query("INSERT into servicos
-                (nome, descricao, estado, cidade, ativo)
-              values
-                ('".$nomeServ."',
-                  '".$descServ."',
-                  '".$estadoServ."',
-                  '".$cidadeServ."',
-                  '".$ativoServ."');");
-		  echo "Serviço cadastrado com sucesso.";
+	query("INSERT into servicos
+			(nome, descricao, estado, cidade, ativo)
+		  values
+			('".$nomeServ."',
+			  '".$descServ."',
+			  '".$estadoServ."',
+			  '".$cidadeServ."',
+			  '".$ativoServ."');");
+			  
+	$result = query("SELECT * from servicos where
+			nome = '".$nomeServ."' and
+			  descricao = '".$descServ."' and
+			  estado = '".$estadoServ."' and
+			  cidade = '".$cidadeServ."' and
+			  ativo = '".$ativoServ."';");
+			  
+	$servico_id = $result[0][0];
+	date_default_timezone_set('America/Sao_Paulo');
+	$date = date('d/m/Y h:i:s a', time());
+			  
+			  
+	query("INSERT into servicos_pessoas
+			(servico, pessoa, datahora)
+		  values
+			('".$servico_id."',
+			  '".$_SESSION['user_id']."',
+			  '".$date."');");
+			  
+			  
+	echo "Serviço cadastrado com sucesso.";
   }else{
     echo $msgErro;
   }

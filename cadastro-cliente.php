@@ -79,7 +79,7 @@
 
 					<div class="form-group">
 						<label>Telefone</label>
-						<input name='telefone' id="telefone" type="text" class="form-control" maxLength="11" value=""/>
+						<input name='telefone' id="telefone" type="text" class="form-control" maxLength="16" value=""/>
 					</div>
 
 					<div class="form-group">
@@ -137,6 +137,7 @@
 		xhr.onload = function() {
 			if (xhr.status === 200) {
 				alert(xhr.responseText);
+				(xhr.responseText == "Cadastro realizado com sucesso.") location.reload();
 			}
 			else if (xhr.status !== 200) {
 				alert('Request failed.  Returned status of ' + xhr.status);

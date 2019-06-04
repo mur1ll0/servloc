@@ -4,7 +4,6 @@
 	session_start();
 
 	c_header();
-		var_dump('1245');
 
 	$data = $_POST[0];
 ?>
@@ -107,6 +106,7 @@
 			xhr.onload = function() {
 				if (xhr.status === 200) {
 					alert(xhr.responseText);
+					if (xhr.responseText == "Serviço cadastrado com sucesso.") location.reload();
 				}
 				else if (xhr.status !== 200) {
 					alert('Request failed.  Returned status of ' + xhr.status);

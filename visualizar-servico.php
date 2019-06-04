@@ -16,6 +16,8 @@
 	c_header();
 
 	$data = query("SELECT * from servicos where codigo = ".$_GET['codigo'].";");
+	$servico_pessoa = query("SELECT * from servicos_pessoas where servico = ".$_GET['codigo'].";");
+	$pessoa = query("SELECT * from pessoas where codigo = ".$servico_pessoa[0][2].";");
 ?>
 
 	<div class="aw-layout-page">
@@ -42,15 +44,23 @@
 						echo '<h3>Cidade: '.$data[0][4].'</h3>';
 						echo '<h3>Estado: '.$data[0][3].'</h3>';
 					?>
-					<h4>
+					<br><br><h4>
 					<label for="contato">Contatos</label>
+					<div class="input-group">
+						<div class="input-group-addon">
+							<svg-icon class="glyph-icon">
+								<src href="static/sprite/sprite.svg#si-glyph-person-2"/>
+							</svg>
+						</div>
+						<input name="nome" id="nome" type="text" class="form-control" disabled value="<?php echo $pessoa[0][1]; ?>"></textarea>
+					</div>
 					<div class="input-group">
 						<div class="input-group-addon">
 							<svg-icon class="glyph-icon">
 								<src href="static/sprite/sprite.svg#si-glyph-call"/>
 							</svg>
 						</div>
-						<textarea name="telefone" id="contato" rows="3" class="form-control" disabled value=""></textarea>
+						<input name="telefone" id="contato" type="text" class="form-control" disabled value="<?php echo $pessoa[0][4]; ?>"></textarea>
 					</div>
 					<div class="input-group">
 						<div class="input-group-addon">
@@ -58,7 +68,7 @@
 								<src href="static/sprite/sprite.svg#si-glyph-mail"/>
 							</svg>
 						</div>
-						<input name="email" id="email" type="text" class="form-control" disabled value="<?php echo 'nada ainda' ?>"/>
+						<input name="email" id="email" type="text" class="form-control" disabled value="<?php echo $pessoa[0][5]; ?>"/>
 					</div>
 				</h4>
 				</div>
