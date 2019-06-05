@@ -8,6 +8,7 @@
 	if (isset($_GET['edit'])){
 		$loadData = query("SELECT * from servicos where codigo = ".$_GET['edit'].";");
 	}
+	$loadPessoa = query("SELECT * from pessoas where codigo = ".$_SESSION['user_id'].";");
 ?>
 
 	<div class="aw-layout-page">
@@ -67,11 +68,11 @@
 						<label for="contato">Contatos</label>
 						<div class="input-group">
 							<div class="input-group-addon"><svg-icon class="glyph-icon"><src href="static/sprite/sprite.svg#si-glyph-call"/></svg></div>
-							<textarea name="telefone" id="contato" rows="3" class="form-control" value="<?php if (isset($data)) echo $data['author']; ?>"></textarea>
+							<textarea name="contato" id="contato" rows="3" class="form-control"><?php echo $loadPessoa[0][4]; ?></textarea>
 						</div>
 						<div class="input-group">
 							<div class="input-group-addon"><svg-icon class="glyph-icon"><src href="static/sprite/sprite.svg#si-glyph-mail"/></svg></div>
-							<input name="email" id="email" type="text" class="form-control" value="<?php if (isset($data)) echo $data['author']; ?>"/>
+							<input name="email" id="email" type="text" class="form-control" value="<?php echo $loadPessoa[0][5]; ?>"/>
 						</div>
 					</div>
 
@@ -117,7 +118,7 @@
 			xhr.onload = function() {
 				if (xhr.status === 200) {
 					alert(xhr.responseText);
-					if (xhr.responseText == "Serviço salvo com sucesso.") location.reload();
+					if (xhr.responseText == "Serviço salvo com sucesso.") window.location.href = "http://localhost/servloc/servico-editar.php";
 				}
 				else if (xhr.status !== 200) {
 					alert('Request failed.  Returned status of ' + xhr.status);

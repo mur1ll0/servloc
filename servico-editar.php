@@ -108,39 +108,26 @@
 				});
 				$('#btn-excluir').click(function(){
 					var dados = table.row('.selected').data();
-					//editaServ(1,dados[0]);
-					table.row('.selected').remove().draw(false);
+					
+					xhr = new XMLHttpRequest();
+					xhr.open('GET', 'static/php/class-del-serv.php?delete='+dados[0], true);
+					xhr.onload = function() {
+						if (xhr.status === 200) {
+							alert(xhr.responseText);
+							table.row('.selected').remove().draw(false);
+						}
+						else if (xhr.status !== 200) {
+							alert('Request failed.  Returned status of ' + xhr.status);
+						}
+					};
+					xhr.send(null);
+					
 				});
 				$('#btn-editar').click(function(){
 					var dados = table.row('.selected').data();
 					window.location.href = '/servloc/cadastro-servico.php?edit='+dados[0];
 				});
 			});
-
-			function editaServ(opcao,servId){
-				var dados = new Array(2);
-				dados[0] = opcao;
-				dados[1] = servId;
-				window.location.href = "http://localhost/servloc/cadastro-servico.php"
-
-
-				// xhr = new XMLHttpRequest();
-				// xhr.open('POST', 'static/php/class-edita-serv.php');
-				// xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-				// xhr.onload = function() {
-				// 	if (xhr.status === 200) {
-				// 		if (opcao == 1){
-				// 			location.replace = xhr.responseText;
-				// 		}else{
-				// 			alert(xhr.responseText);
-				// 		}
-				// 	}
-				// 	else if (xhr.status !== 200) {
-				// 		alert('Request failed.  Returned status of ' + xhr.status);
-				// 	}
-				// };
-				// xhr.send(dados);
-			}
 		</script>
 	</body>
 </html>

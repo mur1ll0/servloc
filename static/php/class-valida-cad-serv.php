@@ -34,7 +34,7 @@
     $ok = false;
     $msgErro = $msgErro.' '.'Vincule pelo menos uma Tag ao serviço.';
   }
-  if ($ok && empty($_POST['telefone'])){
+  if ($ok && empty($_POST['contato'])){
     $ok = false;
     $msgErro = $msgErro.' '.'Preencha um telefone para contato.';
   }
@@ -49,28 +49,32 @@
 	$descServ = isset($_POST['desc'])?$_POST['desc']:'';
 	$estadoServ = strtoupper(isset($_POST['estado'])?$_POST['estado']:'');
 	$cidadeServ = isset($_POST['cidade'])?$_POST['cidade']:'';
+	$tagsServ = isset($_POST['tags'])?$_POST['tags']:'';
+	$contatoServ = isset($_POST['contato'])?$_POST['contato']:'';
+	$emailServ = isset($_POST['email'])?$_POST['email']:'';
 	
 	$ativoServ = 1;
 
 	query("INSERT into servicos
-			(nome, descricao, estado, cidade, ativo)
+			(nome, descricao, estado, cidade, tags, ativo, contatos, email)
 		  values
 			('".$nomeServ."',
 			  '".$descServ."',
 			  '".$estadoServ."',
 			  '".$cidadeServ."',
-			  '".$ativoServ."');");
+			  '".$tagsServ."',
+			  '".$ativoServ."',
+			  '".$contatoServ."',
+			  '".$emailServ."'
+			  );");
 			  
 	$result = query("SELECT * from servicos where
 			nome = '".$nomeServ."' and
-			  descricao = '".$descServ."' and
-			  estado = '".$estadoServ."' and
-			  cidade = '".$cidadeServ."' and
-			  ativo = '".$ativoServ."';");
+			ativo = '".$ativoServ."';");
 			  
 	$servico_id = $result[0][0];
 	date_default_timezone_set('America/Sao_Paulo');
-	$date = date('d/m/Y h:i:s a', time());
+	$date = date('d/m/Y H:i:s');
 			  
 			  
 	query("INSERT into servicos_pessoas

@@ -28,7 +28,7 @@
     $ok = false;
     $msgErro = $msgErro.' '.'Vincule pelo menos uma Tag ao serviço.';
   }
-  if ($ok && empty($_POST['telefone'])){
+  if ($ok && empty($_POST['contato'])){
     $ok = false;
     $msgErro = $msgErro.' '.'Preencha um telefone para contato.';
   }
@@ -43,6 +43,9 @@
 	$descServ = isset($_POST['desc'])?$_POST['desc']:'';
 	$estadoServ = strtoupper(isset($_POST['estado'])?$_POST['estado']:'');
 	$cidadeServ = isset($_POST['cidade'])?$_POST['cidade']:'';
+	$tagsServ = isset($_POST['tags'])?$_POST['tags']:'';
+	$contatoServ = isset($_POST['contato'])?$_POST['contato']:'';
+	$emailServ = isset($_POST['email'])?$_POST['email']:'';
 	
 	$ativoServ = 1;
 
@@ -51,7 +54,10 @@
 			descricao = '".$descServ."',
 			estado = '".$estadoServ."',
 			cidade = '".$cidadeServ."',
-			ativo = '".$ativoServ."'
+			ativo = '".$ativoServ."',
+			tags = '".$tagsServ."',
+			contatos = '".$contatoServ."',
+			email = '".$emailServ."'
 			where codigo = ".$_GET['edit'].";");
 			  
 			  
