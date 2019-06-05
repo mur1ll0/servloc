@@ -149,7 +149,7 @@
 	function c_footer(){
 ?>
 		<div>
-			<footer class="aw-layout-footer  js-content">
+			<footer class="aw-layout-footer js-content">
 				<div class="container-fluid">
 					<span class="aw-footer-disclaimer">Universidade Federal da Fronteira Sul - UFFS</span>
 				</div>
