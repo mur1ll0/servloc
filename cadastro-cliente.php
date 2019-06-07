@@ -87,7 +87,7 @@
 						<div class="form-inline">
 							<select name="estado" class="form-control">
 								<?php
-									opt_select_estado();
+									opt_select_estado('');
 								?>
 							</select>
 							<input name='cidade' id="cidade" type="text" class="form-control" maxLength="64" value=""/>
@@ -137,7 +137,7 @@
 		xhr.onload = function() {
 			if (xhr.status === 200) {
 				alert(xhr.responseText);
-				(xhr.responseText == "Cadastro realizado com sucesso.") location.reload();
+				if (xhr.responseText == "Cadastro realizado com sucesso.") location.reload();
 			}
 			else if (xhr.status !== 200) {
 				alert('Request failed.  Returned status of ' + xhr.status);
